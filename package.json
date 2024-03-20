@@ -1,17 +1,10 @@
 {
-	"name": "vite-react-boilerplate",
-	"author": "Ricardo Valdovinos <ricardovaldovinos1996@gmail.com>",
-	"description": "A production ready, batteries included starter template for Vite + React projects",
-	"keywords": [
-		"vite",
-		"react",
-		"boilerplate",
-		"starter",
-		"template"
-	],
+	"name": "aut-crisp",
+	"author": "Tommaso Cammelli, Juan Herbst, Mike Chene",
+	"description": "Recruiting app project for the Cloud Computing exam",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/RicardoValdovinos/vite-react-boilerplate"
+		"url": "https://github.com/tommcamm/aut-crisp"
 	},
 	"license": "MIT",
 	"version": "1.0.0",
@@ -36,6 +29,7 @@
 		"commitizen": "exec < /dev/tty && git cz --hook || true"
 	},
 	"dependencies": {
+		"@aws-amplify/ui-react": "^6.1.6",
 		"@hookform/resolvers": "^3.3.4",
 		"@nivo/bar": "^0.84.0",
 		"@nivo/core": "^0.84.0",
@@ -46,6 +40,7 @@
 		"@tanstack/react-router": "^1.15.7",
 		"@tanstack/react-table": "^8.11.7",
 		"@tanstack/router-vite-plugin": "^1.15.4",
+		"aws-amplify": "^6.0.21",
 		"dayjs": "^1.11.10",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
