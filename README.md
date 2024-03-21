@@ -12,8 +12,12 @@
 ### How to build/run
 
 ```bash
-# Step 1 - Clone the repo and enter the main dir
-git clone https://github.com/tommcamm/aut-crisp.git
+# Step 1 - Clone the repo and pull the AWS Amplify Configuration
+1. git clone git@github.com:tommcamm/aut-crisp.git
+2. git checkout -b dev
+3. git pull origin dev
+4. amplify pull 
+
 cd aut-crisp
 
 # Step 2 - install all node dependencies
