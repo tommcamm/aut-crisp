@@ -1,4 +1,17 @@
 {
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-crisp-dev-192451-authRole",
+      "UnauthRoleArn": "arn:aws:iam::590183873067:role/amplify-crisp-dev-192451-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::590183873067:role/amplify-crisp-dev-192451-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-crisp-dev-192451-deployment",
+      "UnauthRoleName": "amplify-crisp-dev-192451-unauthRole",
+      "StackName": "amplify-crisp-dev-192451",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:590183873067:stack/amplify-crisp-dev-192451/91cf4140-e682-11ee-a334-0a74a1981d57",
+      "AmplifyAppId": "dw9774jruni5t"
+    }
+  },
   "staging": {
     "awscloudformation": {
       "AuthRoleName": "amplify-crispy-staging-52109-authRole",
