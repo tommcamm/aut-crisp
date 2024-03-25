@@ -30,6 +30,13 @@
                 "type": "number",
                 "description": "List of jobs (id's) the JobSeeker has applied for."
             }
+        },
+        "saved_documents": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "List of document URI's the JobSeeker has stored in S3."
+            }
         }
     }
 }
