@@ -3,11 +3,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider, type createRouter } from "@tanstack/react-router";
 import type { FunctionComponent } from "./common/types";
 // import { TanStackRouterDevelopmentTools } from "./components/utils/development-tools/TanStackRouterDevelopmentTools";
-import { Amplify } from 'aws-amplify';
-import config from './amplifyconfiguration.json';
-
-// Amplify configuration
-Amplify.configure(config);
 
 const queryClient = new QueryClient();
 
