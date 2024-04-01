@@ -1,0 +1,415 @@
+<mxfile host="app.diagrams.net" modified="2024-04-01T09:48:51.564Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="RmHiF2iWSDgH_9mZF2bD" version="24.0.7" type="device">
+  <diagram name="Page-1" id="2cc2dc42-3aac-f2a9-1cec-7a8b7cbee084">
+    <mxGraphModel dx="1194" dy="666" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="7026571954dc6520-1" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;strokeColor=#666666;mainText=,;recursiveResize=0;rounded=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="30" y="20" width="550" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="7026571954dc6520-2" value="Crisp.nz" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;" parent="7026571954dc6520-1" vertex="1">
+          <mxGeometry x="60" y="12" width="110" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="7026571954dc6520-3" value="https://www.crisp.nz/recruitment/profiles" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;rSize=0;fontSize=17;fontColor=#666666;align=left;" parent="7026571954dc6520-1" vertex="1">
+          <mxGeometry x="130" y="60" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="7026571954dc6520-6" value="Name" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" parent="7026571954dc6520-1" vertex="1">
+          <mxGeometry x="50" y="140" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7026571954dc6520-18" value="Save" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;mainText=;buttonStyle=round;fontSize=17;fontStyle=0;fillColor=none;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" parent="7026571954dc6520-1" vertex="1">
+          <mxGeometry x="330" y="360" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---1" value="enter name here" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="7026571954dc6520-1">
+          <mxGeometry x="170" y="140" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---2" value="Lastname" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="7026571954dc6520-1">
+          <mxGeometry x="50" y="190" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---3" value="enter lastname here" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="7026571954dc6520-1">
+          <mxGeometry x="170" y="190" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---12" value="Organisation" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="7026571954dc6520-1">
+          <mxGeometry x="50" y="240" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---13" value="enter lastname here" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="7026571954dc6520-1">
+          <mxGeometry x="170" y="240" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---127" value="email" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="7026571954dc6520-1">
+          <mxGeometry x="50" y="290" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---128" value="read only email here" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="7026571954dc6520-1">
+          <mxGeometry x="170" y="290" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---14" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;strokeColor=#666666;mainText=,;recursiveResize=0;rounded=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="30" y="480" width="740" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---15" value="Crisp.nz" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="60" y="12" width="110" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---16" value="https://www.crisp.nz/recruitment/jobs" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;rSize=0;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="130" y="60" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---17" value="Category" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="90" y="140" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---18" value="Save" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;mainText=;buttonStyle=round;fontSize=17;fontStyle=0;fillColor=none;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="510" y="380" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---20" value="Job Description" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="50" y="256" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---21" value="enter job description here" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="190" y="236" width="380" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---22" value="Salary&amp;nbsp; &amp;nbsp;$" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="110" y="326" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---23" value="enter annual salary here" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="190" y="326" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---24" value="Select 1 of 4 Categories" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=17;spacingLeft=3;" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="190" y="140" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---25" value="Job Title" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="90" y="190" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---26" value="enter job title here" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="190" y="190" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---183" value="Cancel" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;mainText=;buttonStyle=round;fontSize=17;fontStyle=0;fillColor=none;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" vertex="1" parent="gmk9-GeeckrXVe3l32---14">
+          <mxGeometry x="300" y="380" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---27" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;strokeColor=#666666;mainText=,;recursiveResize=0;rounded=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="30" y="975" width="520" height="655" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---28" value="Crisp.nz" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="60" y="12" width="110" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---29" value="https://www.crisp.nz/jobseeker/profiles" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;rSize=0;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="130" y="60" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---39" value="Name" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="90" y="125" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---40" value="enter name here" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="190" y="125" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---41" value="Lastname" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="70" y="175" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---42" value="enter lastname here" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="190" y="175" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---43" value="DOB" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="90" y="350" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---46" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=5;strokeColor=#999999;fillColor=#ffffff;" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="187" y="280" width="160" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---47" value="October 2014" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.anchor;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="30" y="8" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---48" value="&lt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=4;strokeColor=#999999;fontColor=#008cff;fontSize=19;fontStyle=1;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="8" y="8" width="25" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---49" value="&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=4;strokeColor=#999999;fontColor=#008cff;fontSize=19;fontStyle=1;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="127" y="8" width="25" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---50" value="Mo" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.anchor;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="10" y="28" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---51" value="Tu" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.anchor;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="30" y="28" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---52" value="We" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.anchor;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="50" y="28" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---53" value="Th" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.anchor;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="70" y="28" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---54" value="Fr" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.anchor;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="90" y="28" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---55" value="Sa" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.anchor;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="110" y="28" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---56" value="Su" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.anchor;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="130" y="28" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---57" value="1" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="10" y="48" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---58" value="2" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="30" y="48" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---59" value="3" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="50" y="48" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---60" value="4" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="70" y="48" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---61" value="5" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="90" y="48" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---62" value="6" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="110" y="48" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---63" value="7" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="130" y="48" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---64" value="8" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="10" y="68" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---65" value="9" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="30" y="68" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---66" value="10" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="50" y="68" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---67" value="11" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="70" y="68" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---68" value="12" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="90" y="68" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---69" value="13" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="110" y="68" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---70" value="14" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="130" y="68" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---71" value="15" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="10" y="88" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---72" value="16" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="30" y="88" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---73" value="17" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="50" y="88" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---74" value="18" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="70" y="88" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---75" value="19" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="90" y="88" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---76" value="20" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="110" y="88" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---77" value="21" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="130" y="88" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---78" value="22" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="10" y="108" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---79" value="23" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="30" y="108" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---80" value="25" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="70" y="108" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---81" value="26" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="90" y="108" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---82" value="27" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="110" y="108" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---83" value="28" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="130" y="108" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---84" value="29" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="10" y="128" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---85" value="30" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="30" y="128" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---86" value="31" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="50" y="128" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---87" value="1" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;fillColor=#ddeeff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="70" y="128" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---88" value="2" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;fillColor=#ddeeff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="90" y="128" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---89" value="3" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;fillColor=#ddeeff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="110" y="128" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---90" value="4" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;fillColor=#ddeeff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="130" y="128" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---91" value="5" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;fillColor=#ddeeff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="10" y="148" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---92" value="6" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;fillColor=#ddeeff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="30" y="148" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---93" value="7" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;fillColor=#ddeeff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="50" y="148" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---94" value="8" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;fillColor=#ddeeff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="70" y="148" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---95" value="9" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;fillColor=#ddeeff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="90" y="148" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---96" value="10" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;fillColor=#ddeeff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="110" y="148" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---97" value="11" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#999999;fillColor=#ddeeff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="130" y="148" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---98" value="24" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#ff0000;fontColor=#ffffff;strokeWidth=2;fillColor=#008cff;" vertex="1" parent="gmk9-GeeckrXVe3l32---46">
+          <mxGeometry x="50" y="108" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---99" value="Upload CV" style="shape=rectangle;strokeColor=none;fillColor=none;linkText=;fontSize=17;fontColor=#0000ff;fontStyle=4;html=1;align=center;" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="160" y="490" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---100" value="Upload Profile Picture" style="shape=rectangle;strokeColor=none;fillColor=none;linkText=;fontSize=17;fontColor=#0000ff;fontStyle=4;html=1;align=center;" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="197" y="227.5" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---173" value="Save" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;mainText=;buttonStyle=round;fontSize=17;fontStyle=0;fillColor=none;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="290" y="595" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---174" value="email" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="90" y="535" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---175" value="read only email here" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="180" y="535" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---176" value="from signup process" style="strokeWidth=1;shadow=0;dashed=1;align=center;html=1;shape=mxgraph.mockup.text.callout;linkText=;textSize=17;textColor=#666666;callDir=SE;callStyle=line;fontSize=17;fontColor=#666666;align=right;verticalAlign=bottom;strokeColor=#666666;" vertex="1" parent="gmk9-GeeckrXVe3l32---27">
+          <mxGeometry x="390" y="555" width="330" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---129" value="from signup process" style="strokeWidth=1;shadow=0;dashed=1;align=center;html=1;shape=mxgraph.mockup.text.callout;linkText=;textSize=17;textColor=#666666;callDir=SE;callStyle=line;fontSize=17;fontColor=#666666;align=right;verticalAlign=bottom;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="410" y="330" width="350" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---126" value="hardcoded in database" style="strokeWidth=1;shadow=0;dashed=1;align=center;html=1;shape=mxgraph.mockup.text.callout;linkText=;textSize=17;textColor=#666666;callDir=SE;callStyle=line;fontSize=17;fontColor=#666666;align=right;verticalAlign=bottom;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="490" y="640" width="500" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---130" value="create the recruiters basic profile not captured at signup (POST)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="100" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---131" value="recruiter create role (POST)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="840" y="520" width="100" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---145" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;strokeColor=#666666;mainText=,;recursiveResize=0;rounded=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="620" y="1940" width="635" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---146" value="Crisp.nz" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="gmk9-GeeckrXVe3l32---145">
+          <mxGeometry x="60" y="12" width="110" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---147" value="https://www.crisp.nz/jobseekers/jobs" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;rSize=0;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="gmk9-GeeckrXVe3l32---145">
+          <mxGeometry x="130" y="60" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---149" value="Apply" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;mainText=;buttonStyle=round;fontSize=17;fontStyle=0;fillColor=none;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" vertex="1" parent="gmk9-GeeckrXVe3l32---145">
+          <mxGeometry x="217" y="340" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---150" value="Job Description" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---145">
+          <mxGeometry x="77" y="210" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---151" value="readonly" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="gmk9-GeeckrXVe3l32---145">
+          <mxGeometry x="217" y="190" width="380" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---152" value="Salary&amp;nbsp; &amp;nbsp;$" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---145">
+          <mxGeometry x="127" y="280" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---153" value="readonly" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="gmk9-GeeckrXVe3l32---145">
+          <mxGeometry x="217" y="280" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---155" value="Job Title" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---145">
+          <mxGeometry x="117" y="140" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---156" value="readonly&amp;nbsp;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="gmk9-GeeckrXVe3l32---145">
+          <mxGeometry x="217" y="140" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---170" value="Cancel" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;mainText=;buttonStyle=round;fontSize=17;fontStyle=0;fillColor=none;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" vertex="1" parent="gmk9-GeeckrXVe3l32---145">
+          <mxGeometry x="427" y="340" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---106" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;strokeColor=#666666;mainText=,;recursiveResize=0;rounded=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="45" y="1690" width="515" height="510" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---107" value="Crisp.nz" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="gmk9-GeeckrXVe3l32---106">
+          <mxGeometry x="60" y="12" width="110" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---108" value="https://www.crisp.nz/jobseekers/jobs" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;rSize=0;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="gmk9-GeeckrXVe3l32---106">
+          <mxGeometry x="130" y="60" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---109" value="Select Category" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---106">
+          <mxGeometry x="70" y="158.5" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---110" value="Close" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;mainText=;buttonStyle=round;fontSize=17;fontStyle=0;fillColor=none;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" vertex="1" parent="gmk9-GeeckrXVe3l32---106">
+          <mxGeometry x="265" y="450" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---115" value="Select 1 of 4 Categories" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=17;spacingLeft=3;" vertex="1" parent="gmk9-GeeckrXVe3l32---106">
+          <mxGeometry x="200" y="158.5" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---164" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fillColor=#ffffff;" vertex="1" parent="gmk9-GeeckrXVe3l32---106">
+          <mxGeometry x="200" y="220" width="255" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---165" value="Accounting Jobs" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fontColor=#008cff;fontSize=17;fillColor=#ffffff;resizeWidth=1;whiteSpace=wrap;" vertex="1" parent="gmk9-GeeckrXVe3l32---164">
+          <mxGeometry width="255" height="30" relative="1" as="geometry">
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---166" value="Accounting Intern" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.anchor;fontSize=17;fontColor=#666666;align=left;spacingLeft=5;resizeWidth=1;whiteSpace=wrap;" vertex="1" parent="gmk9-GeeckrXVe3l32---164">
+          <mxGeometry width="255" height="20" relative="1" as="geometry">
+            <mxPoint y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---167" value="CFO at ACME" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.anchor;fontSize=17;fontColor=#666666;align=left;spacingLeft=5;resizeWidth=1;whiteSpace=wrap;" vertex="1" parent="gmk9-GeeckrXVe3l32---164">
+          <mxGeometry width="255" height="20" relative="1" as="geometry">
+            <mxPoint y="50" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---168" value="Book Keeper @ Bunnings" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#666666;align=left;spacingLeft=5;fillColor=#ddeeff;strokeColor=none;resizeWidth=1;whiteSpace=wrap;" vertex="1" parent="gmk9-GeeckrXVe3l32---164">
+          <mxGeometry width="255" height="20" relative="1" as="geometry">
+            <mxPoint y="70" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---169" value="Senior Accountant" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.anchor;fontSize=17;fontColor=#666666;align=left;spacingLeft=5;resizeWidth=1;whiteSpace=wrap;" vertex="1" parent="gmk9-GeeckrXVe3l32---164">
+          <mxGeometry width="255" height="20" relative="1" as="geometry">
+            <mxPoint y="90" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---172" value="Select Job" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="gmk9-GeeckrXVe3l32---106">
+          <mxGeometry x="100" y="300" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---182" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.981;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;strokeWidth=4;" edge="1" parent="gmk9-GeeckrXVe3l32---106" source="gmk9-GeeckrXVe3l32---115" target="gmk9-GeeckrXVe3l32---168">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="525" y="174" />
+              <mxPoint x="525" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---103" value="Upload to S3" style="strokeWidth=1;shadow=0;dashed=1;align=center;html=1;shape=mxgraph.mockup.text.callout;linkText=;textSize=17;textColor=#666666;callDir=NE;callStyle=line;fontSize=17;fontColor=#666666;align=right;verticalAlign=top;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1136.25" width="300" height="83.75" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---102" value="Upload to S3" style="strokeWidth=1;shadow=0;dashed=1;align=center;html=1;shape=mxgraph.mockup.text.callout;linkText=;textSize=17;textColor=#666666;callDir=NE;callStyle=line;fontSize=17;fontColor=#666666;align=right;verticalAlign=top;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="330" y="1435" width="370" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---171" value="create the jobseekers basic profile not captured at signup (POST)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1200" width="100" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---177" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.02;exitY=0.65;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=4;dashed=1;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="gmk9-GeeckrXVe3l32---168">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="2130" as="sourcePoint" />
+            <mxPoint x="720" y="2080" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---178" value="update the jobseekers basic profile not captured at signup (PUT)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="670" y="1305" width="100" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---179" value="load jobseeker profile (GET)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="710" y="1160" width="100" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---180" value="update the recruiters basic profile (PUT)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="710" y="150" width="100" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gmk9-GeeckrXVe3l32---181" value="load the recruiters basic profile (GET)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="750" y="10" width="100" height="130" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
