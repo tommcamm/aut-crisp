@@ -29,3 +29,11 @@ pnpm run build
 # (Optional) Step 4 - Run dev version of frontend
 pnpm run dev
 ```
+
+## Terms and Concepts
+
+A User represents a person who has signed up to our application. They will be uniquely identified by their email address. There are two types of users:
+- The jobseekers are users who are searching job opportunities according to the skills they offer.
+- The recruiters are users who are posting job opportunities according to the skills they look for.
+
+A job represents an post offer created by recruiters only. A user can browse all the job correpsonding to his qualifications.

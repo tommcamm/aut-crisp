@@ -4,9 +4,9 @@ import { Navbar } from "../components/layout/navbar";
 
 export const Home = (): FunctionComponent => {
 	return (
-		<div>
+		<div className="flex flex-col h-screen justify-between">
 			<Navbar/>
-			<div className="w-screen h-screen flex flex-col justify-center items-center ">
+			<div className="w-90 flex flex-col justify-center items-center ">
 				<p className="text-gray-600 text-5xl">
 					this page is WIP
 				</p>
