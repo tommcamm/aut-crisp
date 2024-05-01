@@ -2,8 +2,8 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import {getCurrentUser} from 'aws-amplify/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { faArrowRightToBracket, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faUser } from '@fortawesome/free-regular-svg-icons';
+import { faArrowRightFromBracket, faArrowRightToBracket, faGear, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 
 // Helper function to generate class names dynamically
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -52,6 +52,7 @@ export const SignInOutMenu: React.FC = () => {
               <Menu.Item>
                 {({ active }) => (
                   <a href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                    <FontAwesomeIcon icon={faAddressCard} className="pr-3"/>
                     Your Profile
                   </a>
                 )}
@@ -59,6 +60,7 @@ export const SignInOutMenu: React.FC = () => {
               <Menu.Item>
                 {({ active }) => (
                   <a href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                    <FontAwesomeIcon icon={faGear} className="pr-3"/>
                     Settings
                   </a>
                 )}
@@ -66,6 +68,7 @@ export const SignInOutMenu: React.FC = () => {
               <Menu.Item>
                 {({ active }) => (
                   <a href="/signOut" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                    <FontAwesomeIcon icon={faArrowRightFromBracket} className="pr-3"/>
                     Sign out
                   </a>
                 )}
