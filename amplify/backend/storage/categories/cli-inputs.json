@@ -1,0 +1,10 @@
+{
+  "resourceName": "categories",
+  "tableName": "categories",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "number"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

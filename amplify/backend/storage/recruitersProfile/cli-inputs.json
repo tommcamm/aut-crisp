@@ -1,0 +1,10 @@
+{
+  "resourceName": "recruitersProfile",
+  "tableName": "recruitersProfile",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}
