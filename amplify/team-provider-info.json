@@ -32,13 +32,18 @@
         "jobsLambda": {
           "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
           "s3Key": "amplify-builds/jobsLambda-5a7263377a424e644858-build.zip"
+        },
+        "notesLambda": {
+          "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
+          "s3Key": "amplify-builds/notesLambda-3046635274704f766d46-build.zip"
         }
       },
       "storage": {
         "recruitersProfile": {},
         "candidatesProfiles": {},
         "categories": {},
-        "jobs": {}
+        "jobs": {},
+        "notes": {}
       },
       "api": {
         "crispApi": {}

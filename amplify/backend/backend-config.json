@@ -33,6 +33,14 @@
           ],
           "category": "function",
           "resourceName": "jobsLambda"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "notesLambda"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -125,6 +133,25 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "notesLambda": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "notes"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "recruitersProfilesLambda": {
       "build": true,
       "dependsOn": [
@@ -194,6 +221,22 @@
         }
       ]
     },
+    "AMPLIFY_function_notesLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "notesLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_notesLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "notesLambda"
+        }
+      ]
+    },
     "AMPLIFY_function_recruitersProfilesLambda_deploymentBucketName": {
       "usedBy": [
         {
@@ -221,6 +264,10 @@
       "service": "DynamoDB"
     },
     "jobs": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "notes": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },

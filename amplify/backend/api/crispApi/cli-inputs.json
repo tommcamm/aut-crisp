@@ -52,6 +52,19 @@
           "delete"
         ]
       }
+    },
+    "/recruiters/notes": {
+      "name": "/recruiters/notes",
+      "lambdaFunction": "notesLambda",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
     }
   }
 }

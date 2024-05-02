@@ -39,6 +39,13 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     },
+    "notesLambda": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "recruitersProfilesLambda": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
@@ -65,6 +72,14 @@ export type AmplifyDependentResourcesAttributes = {
       "StreamArn": "string"
     },
     "jobs": {
+      "Arn": "string",
+      "Name": "string",
+      "PartitionKeyName": "string",
+      "PartitionKeyType": "string",
+      "Region": "string",
+      "StreamArn": "string"
+    },
+    "notes": {
       "Arn": "string",
       "Name": "string",
       "PartitionKeyName": "string",
