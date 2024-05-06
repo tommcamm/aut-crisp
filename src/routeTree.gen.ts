@@ -3,10 +3,16 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as SignUpImport } from './routes/sign-up'
 import { Route as AuthImport } from './routes/auth'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const SignUpRoute = SignUpImport.update({
+  path: '/sign-up',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const AuthRoute = AuthImport.update({
   path: '/auth',
@@ -30,9 +36,17 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthImport
       parentRoute: typeof rootRoute
     }
+    '/sign-up': {
+      preLoaderRoute: typeof SignUpImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([IndexRoute, AuthRoute])
+export const routeTree = rootRoute.addChildren([
+  IndexRoute,
+  AuthRoute,
+  SignUpRoute,
+])

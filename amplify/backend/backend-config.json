@@ -16,14 +16,6 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "candidatesProfilesLambda"
-        },
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
           "resourceName": "categoriesLambda"
         },
         {
@@ -41,6 +33,14 @@
           ],
           "category": "function",
           "resourceName": "notesLambda"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "candidatesProfilesLambda"
         }
       ],
       "providerPlugin": "awscloudformation",

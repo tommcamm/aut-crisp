@@ -14,19 +14,6 @@
         ]
       }
     },
-    "/candidates/profiles": {
-      "name": "/candidates/profiles",
-      "lambdaFunction": "candidatesProfilesLambda",
-      "permissions": {
-        "setting": "private",
-        "auth": [
-          "create",
-          "read",
-          "update",
-          "delete"
-        ]
-      }
-    },
     "/categories": {
       "name": "/categories",
       "lambdaFunction": "categoriesLambda",
@@ -53,9 +40,22 @@
         ]
       }
     },
-    "/recruiters/notes": {
-      "name": "/recruiters/notes",
+    "/notes": {
+      "name": "/notes",
       "lambdaFunction": "notesLambda",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/candidates/profiles": {
+      "name": "/candidates/profiles",
+      "lambdaFunction": "candidatesProfilesLambda",
       "permissions": {
         "setting": "private",
         "auth": [

@@ -71,6 +71,9 @@ importers:
       react-hook-form:
         specifier: ^7.49.3
         version: 7.49.3(react@18.2.0)
+      react-password-strength-bar:
+        specifier: ^0.4.1
+        version: 0.4.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       zustand:
         specifier: ^4.5.0
         version: 4.5.0(@types/react@18.2.48)(immer@9.0.6)(react@18.2.0)
@@ -5826,6 +5829,12 @@ packages:
   react-lifecycles-compat@3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
 
+  react-password-strength-bar@0.4.1:
+    resolution: {integrity: sha512-2NvYz4IUU8k7KDZgsXKoJWreKCZLKGaqF5QhIVhc09OsPBFXFMh0BeghNkBIRkaxLeI7/xjivknDCYfluBCXKA==}
+    peerDependencies:
+      react: '>=16.8.6'
+      react-dom: '>=16.8.6'
+
   react-refresh@0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
@@ -7005,6 +7014,9 @@ packages:
         optional: true
       react:
         optional: true
+
+  zxcvbn@4.4.2:
+    resolution: {integrity: sha512-Bq0B+ixT/DMyG8kgX2xWcI5jUvCwqrMxSFam7m0lAf78nf04hv6lNCsyLYdyYTrCVMqNDY/206K7eExYCeSyUQ==}
 
 snapshots:
 
@@ -14245,6 +14257,12 @@ snapshots:
 
   react-lifecycles-compat@3.0.4: {}
 
+  react-password-strength-bar@0.4.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      zxcvbn: 4.4.2
+
   react-refresh@0.14.0: {}
 
   react-remove-scroll-bar@2.3.4(@types/react@18.2.48)(react@18.2.0):
@@ -15489,3 +15507,5 @@ snapshots:
       '@types/react': 18.2.48
       immer: 9.0.6
       react: 18.2.0
+
+  zxcvbn@4.4.2: {}

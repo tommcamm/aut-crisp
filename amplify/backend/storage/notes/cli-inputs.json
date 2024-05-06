@@ -5,6 +5,21 @@
     "fieldName": "id",
     "fieldType": "number"
   },
-  "gsi": [],
+  "gsi": [
+    {
+      "name": "recruiterProfileId",
+      "partitionKey": {
+        "fieldName": "recruiterProfileId",
+        "fieldType": "string"
+      }
+    },
+    {
+      "name": "jobseekerProfileId",
+      "partitionKey": {
+        "fieldName": "jobseekerProfileId",
+        "fieldType": "string"
+      }
+    }
+  ],
   "triggerFunctions": []
 }
