@@ -21,10 +21,6 @@
           "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
           "s3Key": "amplify-builds/recruitersProfilesLambda-4638314e34737a6d4248-build.zip"
         },
-        "candidatesProfilesLambda": {
-          "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
-          "s3Key": "amplify-builds/candidatesProfilesLambda-776a7745556648685647-build.zip"
-        },
         "categoriesLambda": {
           "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
           "s3Key": "amplify-builds/categoriesLambda-745778756a5245464447-build.zip"
@@ -35,7 +31,11 @@
         },
         "notesLambda": {
           "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
-          "s3Key": "amplify-builds/notesLambda-3046635274704f766d46-build.zip"
+          "s3Key": "amplify-builds/notesLambda-53494656453231316e4d-build.zip"
+        },
+        "candidatesProfilesLambda": {
+          "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
+          "s3Key": "amplify-builds/candidatesProfilesLambda-6953477a7a5a49356e6f-build.zip"
         }
       },
       "storage": {

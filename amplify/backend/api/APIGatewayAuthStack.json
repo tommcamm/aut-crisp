@@ -124,66 +124,6 @@
                           }
                         ]
                       },
-                      "/*/candidates/profiles/*"
-                    ]
-                  ]
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
-                      ":",
-                      {
-                        "Ref": "crispApi"
-                      },
-                      "/",
-                      {
-                        "Fn::If": [
-                          "ShouldNotCreateEnvResources",
-                          "Prod",
-                          {
-                            "Ref": "env"
-                          }
-                        ]
-                      },
-                      "/*/candidates/profiles"
-                    ]
-                  ]
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
-                      ":",
-                      {
-                        "Ref": "crispApi"
-                      },
-                      "/",
-                      {
-                        "Fn::If": [
-                          "ShouldNotCreateEnvResources",
-                          "Prod",
-                          {
-                            "Ref": "env"
-                          }
-                        ]
-                      },
                       "/*/categories/*"
                     ]
                   ]
@@ -304,7 +244,7 @@
                           }
                         ]
                       },
-                      "/*/recruiters/notes/*"
+                      "/*/notes/*"
                     ]
                   ]
                 },
@@ -334,7 +274,67 @@
                           }
                         ]
                       },
-                      "/*/recruiters/notes"
+                      "/*/notes"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "crispApi"
+                      },
+                      "/",
+                      {
+                        "Fn::If": [
+                          "ShouldNotCreateEnvResources",
+                          "Prod",
+                          {
+                            "Ref": "env"
+                          }
+                        ]
+                      },
+                      "/*/candidates/profiles/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "crispApi"
+                      },
+                      "/",
+                      {
+                        "Fn::If": [
+                          "ShouldNotCreateEnvResources",
+                          "Prod",
+                          {
+                            "Ref": "env"
+                          }
+                        ]
+                      },
+                      "/*/candidates/profiles"
                     ]
                   ]
                 }
