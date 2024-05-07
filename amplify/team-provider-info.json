@@ -35,7 +35,7 @@
         },
         "candidatesProfilesLambda": {
           "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
-          "s3Key": "amplify-builds/candidatesProfilesLambda-6953477a7a5a49356e6f-build.zip"
+          "s3Key": "amplify-builds/candidatesProfilesLambda-6f4351396c3966736541-build.zip"
         }
       },
       "storage": {

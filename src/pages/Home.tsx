@@ -12,7 +12,8 @@ export const Home = (): FunctionComponent => {
 	const searchParameters :Record<string, unknown> = useSearch({strict: false});
 
 	const fromSignUp = searchParameters['fromSignUp'];
-	const fromSignIn = searchParameters['fromSignin'];
+	const fromSignIn = searchParameters['fromSignIn'];
+	const fromSignOut = searchParameters['fromSignOut'];
 
 	// Show a toast if sign in/up is completed successfully.
 	useEffect(() => {
@@ -21,8 +22,10 @@ export const Home = (): FunctionComponent => {
 			toast.success("Successfully signed up!");
 		} else if (fromSignIn) {
 			toast.success("Signed in successfully");
+		} else if (fromSignOut) {
+			toast.success("Signed out successfully");
 		}
-	}, [fromSignUp, fromSignIn]); // Dependencies to trigger the effect
+	}, [fromSignUp, fromSignIn, fromSignOut]); // Dependencies to trigger the effect
 
 	return (
 		<div className="flex flex-col h-screen justify-between">
