@@ -47,11 +47,10 @@ export const SignUpPage = (): FunctionComponent => {
                 autoSignIn: true
               }
             });
-        
-            
+
             // User authenticated, redirect
             if (isSignUpComplete) {
-                await navigate({to: '/', params: {fromSignUp: true} });
+                await navigate({to: '/', search: {fromSignUp: true} });
             }
 
           } catch (error) {
@@ -64,7 +63,6 @@ export const SignUpPage = (): FunctionComponent => {
                 setError('Unexpected error');
             }
         }
-
     }
 
     return (
