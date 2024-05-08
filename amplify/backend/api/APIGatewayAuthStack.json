@@ -124,7 +124,7 @@
                           }
                         ]
                       },
-                      "/*/categories/*"
+                      "/*/candidates/profiles/*"
                     ]
                   ]
                 },
@@ -154,7 +154,7 @@
                           }
                         ]
                       },
-                      "/*/categories"
+                      "/*/candidates/profiles"
                     ]
                   ]
                 },
@@ -304,7 +304,7 @@
                           }
                         ]
                       },
-                      "/*/candidates/profiles/*"
+                      "/*/categories/*"
                     ]
                   ]
                 },
@@ -334,7 +334,7 @@
                           }
                         ]
                       },
-                      "/*/candidates/profiles"
+                      "/*/categories"
                     ]
                   ]
                 }

@@ -14,9 +14,9 @@
         ]
       }
     },
-    "/categories": {
-      "name": "/categories",
-      "lambdaFunction": "categoriesLambda",
+    "/candidates/profiles": {
+      "name": "/candidates/profiles",
+      "lambdaFunction": "candidatesProfilesLambda",
       "permissions": {
         "setting": "private",
         "auth": [
@@ -53,9 +53,9 @@
         ]
       }
     },
-    "/candidates/profiles": {
-      "name": "/candidates/profiles",
-      "lambdaFunction": "candidatesProfilesLambda",
+    "/categories": {
+      "name": "/categories",
+      "lambdaFunction": "categoriesLambda",
       "permissions": {
         "setting": "private",
         "auth": [
