@@ -5,8 +5,14 @@ import { Carousel } from "../components/layout/carousel";
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-import { useSearch } from "@tanstack/react-router";
+import { useSearch, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
+
+const removeSearchParameter = (parameter :string) :void => {
+	const currentUrl = new URL(window.location.href);
+	currentUrl.searchParams.delete(parameter);
+	
+};
 
 export const Home = (): FunctionComponent => {
 	const searchParameters :Record<string, unknown> = useSearch({strict: false});
@@ -20,10 +26,12 @@ export const Home = (): FunctionComponent => {
 		if (fromSignUp) {
 			console.log("From sign up")
 			toast.success("Successfully signed up!");
+			
 		} else if (fromSignIn) {
 			toast.success("Signed in successfully");
 		} else if (fromSignOut) {
 			toast.success("Signed out successfully");
+			removeSearchParameter('fromSignOut');
 		}
 	}, [fromSignUp, fromSignIn, fromSignOut]); // Dependencies to trigger the effect
 

@@ -7,11 +7,10 @@ import { useState } from "react";
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { signUp } from "aws-amplify/auth";
 import { useNavigate  } from '@tanstack/react-router';
-
+import { RadioUserType } from "../components/forms/radio-usertype";
 
 export const SignUpPage = (): FunctionComponent => {
     // State to hold form inputs
-    const [username, setUsername] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
@@ -72,7 +71,7 @@ export const SignUpPage = (): FunctionComponent => {
                     <h3 className="text-gray-600 text-3xl text-center">CRISP.NZ</h3>
                 </a>
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                    Create your new account
+                    Create a new account
                 </h2>
             </div>
 
@@ -96,24 +95,6 @@ export const SignUpPage = (): FunctionComponent => {
                 )}
 
                 <form className="space-y-6 pt-3" onSubmit={handleSignUp}>
-                    {/* Username */}
-                    <div>
-                        <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
-                            Username
-                        </label>
-                        <div className="mt-2">
-                            <input
-                                id="username"
-                                name="username"
-                                type="text"
-                                placeholder="yourUsername"
-                                required
-                                className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                value={username}
-                                onChange={un => {setUsername(un.target.value)}}
-                            />
-                        </div>
-                    </div>
 
                     {/* Email */}
                     <div>
@@ -183,6 +164,8 @@ export const SignUpPage = (): FunctionComponent => {
                             )}
                         </div>
                     </div>
+                    {/* User type */}
+                    <RadioUserType />
 
                     {/* Submit Button */}
                     <div>
