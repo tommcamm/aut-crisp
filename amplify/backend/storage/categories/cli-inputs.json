@@ -3,7 +3,7 @@
   "tableName": "categories",
   "partitionKey": {
     "fieldName": "id",
-    "fieldType": "number"
+    "fieldType": "string"
   },
   "gsi": [],
   "triggerFunctions": []

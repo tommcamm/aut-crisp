@@ -3,23 +3,8 @@
   "tableName": "notes",
   "partitionKey": {
     "fieldName": "id",
-    "fieldType": "number"
+    "fieldType": "string"
   },
-  "gsi": [
-    {
-      "name": "recruiterProfileId",
-      "partitionKey": {
-        "fieldName": "recruiterProfileId",
-        "fieldType": "string"
-      }
-    },
-    {
-      "name": "jobseekerProfileId",
-      "partitionKey": {
-        "fieldName": "jobseekerProfileId",
-        "fieldType": "string"
-      }
-    }
-  ],
+  "gsi": [],
   "triggerFunctions": []
 }

@@ -16,14 +16,6 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "categoriesLambda"
-        },
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
           "resourceName": "jobsLambda"
         },
         {
@@ -33,6 +25,14 @@
           ],
           "category": "function",
           "resourceName": "notesLambda"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "categoriesLambda"
         },
         {
           "attributes": [
@@ -89,7 +89,7 @@
             "Arn"
           ],
           "category": "storage",
-          "resourceName": "candidatesProfiles"
+          "resourceName": "candidatesProfile"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -255,7 +255,7 @@
     }
   },
   "storage": {
-    "candidatesProfiles": {
+    "candidatesProfile": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },

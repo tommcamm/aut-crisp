@@ -1,6 +1,6 @@
 {
-  "resourceName": "candidatesProfiles",
-  "tableName": "candidatesProfiles",
+  "resourceName": "candidatesProfile",
+  "tableName": "candidatesProfile",
   "partitionKey": {
     "fieldName": "id",
     "fieldType": "string"

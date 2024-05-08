@@ -14,19 +14,6 @@
         ]
       }
     },
-    "/categories": {
-      "name": "/categories",
-      "lambdaFunction": "categoriesLambda",
-      "permissions": {
-        "setting": "private",
-        "auth": [
-          "create",
-          "read",
-          "update",
-          "delete"
-        ]
-      }
-    },
     "/jobs": {
       "name": "/jobs",
       "lambdaFunction": "jobsLambda",
@@ -43,6 +30,19 @@
     "/notes": {
       "name": "/notes",
       "lambdaFunction": "notesLambda",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/categories": {
+      "name": "/categories",
+      "lambdaFunction": "categoriesLambda",
       "permissions": {
         "setting": "private",
         "auth": [

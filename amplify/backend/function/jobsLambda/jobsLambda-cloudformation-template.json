@@ -97,12 +97,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "crispLambdaRoleae9b1050",
+            "crispLambdaRole650bea46",
             {
               "Fn::Join": [
                 "",
                 [
-                  "crispLambdaRoleae9b1050",
+                  "crispLambdaRole650bea46",
                   "-",
                   {
                     "Ref": "env"
