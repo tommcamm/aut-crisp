@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Lambda Function resource stack creation using Amplify CLI",
+  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.10.3\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -16,13 +16,13 @@
     "s3Key": {
       "Type": "String"
     },
-    "storagecandidatesProfilesName": {
+    "storagecandidatesProfileName": {
       "Type": "String",
-      "Default": "storagecandidatesProfilesName"
+      "Default": "storagecandidatesProfileName"
     },
-    "storagecandidatesProfilesArn": {
+    "storagecandidatesProfileArn": {
       "Type": "String",
-      "Default": "storagecandidatesProfilesArn"
+      "Default": "storagecandidatesProfileArn"
     }
   },
   "Conditions": {
@@ -97,12 +97,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "crispLambdaRolee93fbd3e",
+            "crispLambdaRole5f5b76d9",
             {
               "Fn::Join": [
                 "",
                 [
-                  "crispLambdaRolee93fbd3e",
+                  "crispLambdaRole5f5b76d9",
                   "-",
                   {
                     "Ref": "env"
@@ -182,14 +182,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storagecandidatesProfilesArn"
+                  "Ref": "storagecandidatesProfileArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storagecandidatesProfilesArn"
+                        "Ref": "storagecandidatesProfileArn"
                       },
                       "index/*"
                     ]

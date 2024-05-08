@@ -55,7 +55,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
-    "candidatesProfiles": {
+    "candidatesProfile": {
       "Arn": "string",
       "Name": "string",
       "PartitionKeyName": "string",

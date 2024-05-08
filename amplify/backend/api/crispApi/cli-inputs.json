@@ -14,19 +14,6 @@
         ]
       }
     },
-    "/candidates/profiles": {
-      "name": "/candidates/profiles",
-      "lambdaFunction": "candidatesProfilesLambda",
-      "permissions": {
-        "setting": "private",
-        "auth": [
-          "create",
-          "read",
-          "update",
-          "delete"
-        ]
-      }
-    },
     "/jobs": {
       "name": "/jobs",
       "lambdaFunction": "jobsLambda",
@@ -56,6 +43,19 @@
     "/categories": {
       "name": "/categories",
       "lambdaFunction": "categoriesLambda",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/candidates/profiles": {
+      "name": "/candidates/profiles",
+      "lambdaFunction": "candidatesProfilesLambda",
       "permissions": {
         "setting": "private",
         "auth": [
