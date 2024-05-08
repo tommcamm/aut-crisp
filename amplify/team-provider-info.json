@@ -14,7 +14,8 @@
     },
     "categories": {
       "auth": {
-        "crisp32e1fca3": {}
+        "crisp32e1fca3": {},
+        "crisp": {}
       },
       "function": {
         "recruitersProfilesLambda": {

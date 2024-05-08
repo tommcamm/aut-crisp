@@ -48,7 +48,7 @@
     }
   },
   "auth": {
-    "crisp32e1fca3": {
+    "crisp": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -61,7 +61,9 @@
           "passwordPolicyMinLength": 8
         },
         "signupAttributes": [
-          "EMAIL"
+          "EMAIL",
+          "NAME",
+          "FAMILY_NAME"
         ],
         "socialProviders": [],
         "usernameAttributes": [
