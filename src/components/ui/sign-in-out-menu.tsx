@@ -17,7 +17,11 @@ export const SignInOutMenu: React.FC = () => {
 
   const checkAuth = async () : Promise<void> => {
     try {
-      await getCurrentUser();
+      const { username, userId, signInDetails } = await getCurrentUser();
+
+      console.log("username", username);
+      console.log("user id", userId);
+      console.log("sign-in details", signInDetails);
       setIsAuthenticated(true);
     } catch {
       setIsAuthenticated(false);
@@ -53,7 +57,7 @@ export const SignInOutMenu: React.FC = () => {
                 {({ active }) => (
                   <a href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
                     <FontAwesomeIcon icon={faAddressCard} className="pr-3"/>
-                    Your Profile
+                    Profile
                   </a>
                 )}
               </Menu.Item>
@@ -67,7 +71,7 @@ export const SignInOutMenu: React.FC = () => {
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <a href="/signOut" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                  <a href="/sign-out" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
                     <FontAwesomeIcon icon={faArrowRightFromBracket} className="pr-3"/>
                     Sign out
                   </a>

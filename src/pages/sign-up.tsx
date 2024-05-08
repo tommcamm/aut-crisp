@@ -20,7 +20,7 @@ export const SignUpPage = (): FunctionComponent => {
     const [error, setError] = useState<string>("");
     const [passwordsMatch, setPasswordsMatch] = useState<boolean>(true);
 
-    const navigate = useNavigate({ from: '/sign-up' })
+    const navigate = useNavigate({ from: '/sign-up' });
 
     async function handleSignUp(event: React.FormEvent<HTMLFormElement>) :Promise<void> {
         event.preventDefault(); 
@@ -37,7 +37,7 @@ export const SignUpPage = (): FunctionComponent => {
         
         // TODO: write the logic for sign up.
         try {
-            const { isSignUpComplete, userId, nextStep } = await signUp({
+            const { isSignUpComplete, nextStep } = await signUp({
               username: email,
               password,
               options: {
@@ -47,11 +47,10 @@ export const SignUpPage = (): FunctionComponent => {
                 autoSignIn: true
               }
             });
-        
-            
+
             // User authenticated, redirect
             if (isSignUpComplete) {
-                await navigate({to: '/', params: {fromSignUp: true} });
+                await navigate({to: '/', search: {fromSignUp: true} });
             }
 
           } catch (error) {
@@ -64,7 +63,6 @@ export const SignUpPage = (): FunctionComponent => {
                 setError('Unexpected error');
             }
         }
-
     }
 
     return (

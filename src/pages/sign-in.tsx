@@ -5,8 +5,12 @@ import XCircleIcon from "@heroicons/react/24/outline/XCircleIcon";
 import { signIn } from 'aws-amplify/auth';
 import type { FunctionComponent } from "../common/types";
 import { useState } from "react";
+import { Route } from "../routes/auth";
+import { useNavigate } from "@tanstack/react-router";
 
 export const SignInPage = (): FunctionComponent => {
+    const navigate = useNavigate({ from: Route.fullPath });
+
     // State to hold form inputs
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -21,7 +25,15 @@ export const SignInPage = (): FunctionComponent => {
         try {
             const { isSignedIn, nextStep } = await signIn({ username: email, password: password });
             console.log('Signed in:', isSignedIn);
+            console.log('Next step:', nextStep);
             // Add any navigation or state updates here depending on 'nextStep' or 'isSignedIn'
+
+            if (isSignedIn) {
+                await navigate({to: '/', search: {fromSignIn: true} });
+            } else {
+                setError("Sign in failed due to " + nextStep['signInStep']);
+            }
+
         } catch (error) {
             console.error('Error signing in:', error);
             if (typeof error === "string") {
