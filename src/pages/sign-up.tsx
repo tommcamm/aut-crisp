@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable no-duplicate-imports */
 import type React from "react";
@@ -8,9 +9,13 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 import { signUp } from "aws-amplify/auth";
 import { useNavigate  } from '@tanstack/react-router';
 import { RadioUserType } from "../components/forms/radio-usertype";
+import { UserConfirmForm } from "../components/forms/user-confirm";
+import { confirmType } from "../common/enums";
 
 export const SignUpPage = (): FunctionComponent => {
     // State to hold form inputs
+    const [name, setName] = useState<string>("");
+    const [familyName, setFamilyName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
@@ -18,6 +23,8 @@ export const SignUpPage = (): FunctionComponent => {
     // State to handle errors
     const [error, setError] = useState<string>("");
     const [passwordsMatch, setPasswordsMatch] = useState<boolean>(true);
+
+    const [confirmSignUp, setConfirmSignUp] = useState<boolean>(false);
 
     const navigate = useNavigate({ from: '/sign-up' });
 
@@ -41,18 +48,22 @@ export const SignUpPage = (): FunctionComponent => {
               password,
               options: {
                 userAttributes: {
-                  email
+                  email,
+                  name,
+                  family_name: familyName
                 },
                 autoSignIn: true
               }
             });
 
+            console.log('Sign up complete?', isSignUpComplete);
+            console.log('Next step:', nextStep);
+
             // User authenticated, confirmation stage then redirect
             if (isSignUpComplete) {
-                console.log(nextStep);
-
-
-                // await navigate({to: '/', search: {fromSignUp: true} });
+                await navigate({to: '/', search: {fromSignUp: true} });
+            } else if (nextStep.signUpStep === "CONFIRM_SIGN_UP") {
+                setConfirmSignUp(true);
             }
 
           } catch (error) {
@@ -97,7 +108,48 @@ export const SignUpPage = (): FunctionComponent => {
                     </div>
                 )}
 
+                {!confirmSignUp ? (
+                <UserConfirmForm email={email} type={confirmType.signUp}/>
+                ) : (
                 <form className="space-y-6 pt-3" onSubmit={handleSignUp}>
+                    {/* Name */}
+                    <div>
+                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                            Name
+                        </label>
+                        <div className="mt-2">
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                placeholder="John"
+                                required
+                                className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                value={name}
+                                onChange={nm => {setName(nm.target.value)}}
+                            />
+                        </div>
+                    </div>
+
+                    {/* Family Name */}
+                    <div>
+                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                            Family Name
+                        </label>
+                        <div className="mt-2">
+                            <input
+                                id="familyName"
+                                name="familyName"
+                                type="text"
+                                placeholder="Doe"
+                                required
+                                className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                value={familyName}
+                                onChange={fnm => {setFamilyName(fnm.target.value)}}
+                            />
+                        </div>
+                    </div>
+
 
                     {/* Email */}
                     <div>
@@ -179,6 +231,7 @@ export const SignUpPage = (): FunctionComponent => {
                         </button>
                     </div>
                 </form>
+                )}
             </div>
         </div>
     );
