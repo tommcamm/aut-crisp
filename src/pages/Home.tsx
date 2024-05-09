@@ -4,7 +4,7 @@ import { Navbar } from "../components/layout/navbar";
 import { Carousel } from "../components/layout/carousel";
 
 import 'react-toastify/dist/ReactToastify.css';
-import { HomeToasts } from "../components/ui/home-toasts";
+import { Toasts } from "../components/ui/toasts";
 
 export const Home = (): FunctionComponent => {
 
@@ -12,7 +12,7 @@ export const Home = (): FunctionComponent => {
 		<div className="flex flex-col h-screen justify-between">
 			<Navbar/>
 			<Carousel />
-			<HomeToasts />
+			<Toasts />
 			<Footer/>
 		</div>
 	);

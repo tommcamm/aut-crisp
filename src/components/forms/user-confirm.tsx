@@ -1,16 +1,29 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { confirmSignUp } from "aws-amplify/auth";
+import { autoSignIn, confirmSignUp } from "aws-amplify/auth";
 import { useState } from "react";
-import type { confirmType } from "../../common/enums";
+import { confirmType, successToast } from "../../common/enums";
 import XCircleIcon from "@heroicons/react/24/outline/XCircleIcon";
 import { useNavigate  } from '@tanstack/react-router';
+
 interface Props {
 	email: string;
-	type: confirmType;
+	type?: confirmType;
+	redirect?: string;
+}
+
+const defaultProps :Props = {
+	email: 'undefined',
+	type: confirmType.signIn,
+	redirect: '/'
 }
 
 export const UserConfirmForm: React.FC<Props> = (props: Props) => {
-	const { email } = props;
+	const propsWithDefaults = {
+		...defaultProps,
+		...props,
+	}
+	
+	const { email, redirect } = propsWithDefaults;
 
 	const navigate = useNavigate();
 
@@ -28,7 +41,8 @@ export const UserConfirmForm: React.FC<Props> = (props: Props) => {
 			});
 
 			if (isSignUpComplete) {
-				await navigate({to: '/', search: {fromConfirm: true} });
+				await autoSignIn();
+				await navigate({to: redirect, search: {toastID: successToast.confirmedAcc} });
 			} else {
 				setError('Verification done but not completed');
 				console.log('Reason verification NOK:',nextStep);

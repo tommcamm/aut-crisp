@@ -10,9 +10,22 @@ import { signUp } from "aws-amplify/auth";
 import { useNavigate  } from '@tanstack/react-router';
 import { RadioUserType } from "../components/forms/radio-usertype";
 import { UserConfirmForm } from "../components/forms/user-confirm";
-import { confirmType } from "../common/enums";
+import { confirmType, successToast } from "../common/enums";
+import { isUserAuthenticated } from "../common/utils";
 
 export const SignUpPage = (): FunctionComponent => {
+    const navigate = useNavigate({ from: '/sign-up' });
+
+    isUserAuthenticated() // If user is already authenticated it will be brought to home-page
+    .then((authenticated) => {
+        if (authenticated) {
+            void navigate({ to: "/" });
+        }
+    })
+    .catch((error) => {
+        console.error("Failed to check authentication:", error);
+    });
+
     // State to hold form inputs
     const [name, setName] = useState<string>("");
     const [familyName, setFamilyName] = useState<string>("");
@@ -26,8 +39,6 @@ export const SignUpPage = (): FunctionComponent => {
 
     const [confirmSignUp, setConfirmSignUp] = useState<boolean>(false);
 
-    const navigate = useNavigate({ from: '/sign-up' });
-
     async function handleSignUp(event: React.FormEvent<HTMLFormElement>) :Promise<void> {
         event.preventDefault(); 
 
@@ -40,8 +51,7 @@ export const SignUpPage = (): FunctionComponent => {
             setError('Passwords do not match');
             return;
         }
-        
-        // TODO: write the logic for sign up.
+
         try {
             const { isSignUpComplete, nextStep } = await signUp({
               username: email,
@@ -61,7 +71,7 @@ export const SignUpPage = (): FunctionComponent => {
 
             // User authenticated, confirmation stage then redirect
             if (isSignUpComplete) {
-                await navigate({to: '/', search: {fromSignUp: true} });
+                await navigate({to: '/', search: {toastID: successToast.signUp} });
             } else if (nextStep.signUpStep === "CONFIRM_SIGN_UP") {
                 setConfirmSignUp(true);
             }
@@ -108,8 +118,8 @@ export const SignUpPage = (): FunctionComponent => {
                     </div>
                 )}
 
-                {!confirmSignUp ? (
-                <UserConfirmForm email={email} type={confirmType.signUp}/>
+                {confirmSignUp ? (
+                <UserConfirmForm email={email} type={confirmType.signUp} redirect="/"/>
                 ) : (
                 <form className="space-y-6 pt-3" onSubmit={handleSignUp}>
                     {/* Name */}
