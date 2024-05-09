@@ -31,6 +31,10 @@ export const Toasts = (): FunctionComponent => {
 				toast.success("Account verified successfully");
 				break;
 			}
+			case successToast.notAuthenticated: {
+				toast.warning("Authentication needed to access that page");
+				break;
+			}
 		} 
 	}, [toastID]);
 

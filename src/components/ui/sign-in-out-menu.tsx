@@ -55,7 +55,7 @@ export const SignInOutMenu: React.FC = () => {
             <>
               <Menu.Item>
                 {({ active }) => (
-                  <a href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                  <a href="/profile" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
                     <FontAwesomeIcon icon={faAddressCard} className="pr-3"/>
                     Profile
                   </a>
@@ -63,7 +63,7 @@ export const SignInOutMenu: React.FC = () => {
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <a href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                  <a href="/settings" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
                     <FontAwesomeIcon icon={faGear} className="pr-3"/>
                     Settings
                   </a>

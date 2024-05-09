@@ -9,5 +9,6 @@ export enum successToast {
 	signUp = 'signUp',
 	signIn = 'signIn',
 	confirmedAcc = 'confirmedAcc',
-	signOut = 'signOut'
+	signOut = 'signOut',
+	notAuthenticated = 'notAuthenticated'
 }

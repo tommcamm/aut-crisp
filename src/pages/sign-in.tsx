@@ -4,9 +4,9 @@ import type React from "react";
 import XCircleIcon from "@heroicons/react/24/outline/XCircleIcon";
 import { signIn } from "aws-amplify/auth";
 import type { FunctionComponent } from "../common/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route } from "../routes/auth";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate, useSearch } from "@tanstack/react-router";
 import { successToast } from "../common/enums";
 import { Toasts } from "../components/ui/toasts";
 import { isUserAuthenticated } from "../common/utils";
@@ -15,15 +15,20 @@ import { UserConfirmForm } from "../components/forms/user-confirm";
 export const SignInPage = (): FunctionComponent => {
 	const navigate = useNavigate({ from: Route.fullPath });
 
-	isUserAuthenticated() // If user is already authenticated it will be brought to home-page
+    const searchParameters :Record<string, unknown> = useSearch({strict: false});
+	const redirect :string = searchParameters['redirect'] as string ?? "/";
+
+    useEffect(() => { // only once..
+        isUserAuthenticated() // If user is already authenticated it will be brought to home-page
 		.then((authenticated) => {
 			if (authenticated) {
-				void navigate({ to: "/" });
-			}
+				void navigate({ to: redirect });
+			} 
 		})
 		.catch((error) => {
 			console.error("Failed to check authentication:", error);
 		});
+    }, [redirect, navigate]);
 
 	// State to hold form inputs
 	const [email, setEmail] = useState<string>("");
@@ -49,7 +54,7 @@ export const SignInPage = (): FunctionComponent => {
 			// Add any navigation or state updates here depending on 'nextStep' or 'isSignedIn'
 
 			if (isSignedIn) {
-				await navigate({ to: "/", search: { toastID: successToast.signIn } });
+				await navigate({to: redirect, search: { toastID: successToast.signIn } });
 			} else if (nextStep.signInStep === "CONFIRM_SIGN_UP") {
 				setConfirmSignUp(true);
 			} else {
@@ -101,7 +106,7 @@ export const SignInPage = (): FunctionComponent => {
 					)}
 
 					{confirmSignUp ? (
-						<UserConfirmForm email={email} redirect="/" />
+						<UserConfirmForm email={email} redirect={redirect} />
 					) : (
 						<>
 							<form className="space-y-6 pt-3" onSubmit={handleSignIn}>
