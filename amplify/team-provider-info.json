@@ -9,14 +9,45 @@
       "UnauthRoleName": "amplify-crisp-dev-192451-unauthRole",
       "StackName": "amplify-crisp-dev-192451",
       "StackId": "arn:aws:cloudformation:ap-southeast-2:590183873067:stack/amplify-crisp-dev-192451/91cf4140-e682-11ee-a334-0a74a1981d57",
-      "AmplifyAppId": "dw9774jruni5t"
+      "AmplifyAppId": "dw9774jruni5t",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-crisp-dev-192451-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
-        "crisp5411f411": {}
+        "crisp32e1fca3": {},
+        "crisp": {}
+      },
+      "function": {
+        "recruitersProfilesLambda": {
+          "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
+          "s3Key": "amplify-builds/recruitersProfilesLambda-4638314e34737a6d4248-build.zip"
+        },
+        "notesLambda": {
+          "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
+          "s3Key": "amplify-builds/notesLambda-6b4e2f6a3566612f782f-build.zip"
+        },
+        "categoriesLambda": {
+          "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
+          "s3Key": "amplify-builds/categoriesLambda-57663376315a652b6471-build.zip"
+        },
+        "jobsLambda": {
+          "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
+          "s3Key": "amplify-builds/jobsLambda-636b3333494236394354-build.zip"
+        },
+        "candidatesProfilesLambda": {
+          "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
+          "s3Key": "amplify-builds/candidatesProfilesLambda-2b4f33614c436d496349-build.zip"
+        }
       },
       "storage": {
-        "s3storage": {}
+        "recruitersProfile": {},
+        "notes": {},
+        "categories": {},
+        "jobs": {},
+        "candidatesProfile": {}
+      },
+      "api": {
+        "crispApi": {}
       }
     }
   },

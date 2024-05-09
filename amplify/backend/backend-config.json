@@ -1,6 +1,54 @@
 {
+  "api": {
+    "crispApi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "recruitersProfilesLambda"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "jobsLambda"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "notesLambda"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "categoriesLambda"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "candidatesProfilesLambda"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
-    "crisp5411f411": {
+    "crisp": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -13,10 +61,14 @@
           "passwordPolicyMinLength": 8
         },
         "signupAttributes": [
-          "EMAIL"
+          "EMAIL",
+          "NAME",
+          "FAMILY_NAME"
         ],
         "socialProviders": [],
-        "usernameAttributes": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
         "verificationMechanisms": [
           "EMAIL"
         ]
@@ -25,11 +77,205 @@
       "service": "Cognito"
     }
   },
-  "storage": {
-    "s3storage": {
-      "dependsOn": [],
+  "function": {
+    "candidatesProfilesLambda": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "candidatesProfile"
+        }
+      ],
       "providerPlugin": "awscloudformation",
-      "service": "S3"
+      "service": "Lambda"
+    },
+    "categoriesLambda": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "categories"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "jobsLambda": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "jobs"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "notesLambda": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "notes"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "recruitersProfilesLambda": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "recruitersProfile"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_candidatesProfilesLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "candidatesProfilesLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_candidatesProfilesLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "candidatesProfilesLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_categoriesLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "categoriesLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_categoriesLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "categoriesLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_jobsLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jobsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_jobsLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jobsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_notesLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "notesLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_notesLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "notesLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_recruitersProfilesLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "recruitersProfilesLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_recruitersProfilesLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "recruitersProfilesLambda"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "candidatesProfile": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "categories": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "jobs": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "notes": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "recruitersProfile": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
     }
   }
 }

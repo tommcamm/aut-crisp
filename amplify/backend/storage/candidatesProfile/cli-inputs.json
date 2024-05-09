@@ -1,0 +1,10 @@
+{
+  "resourceName": "candidatesProfile",
+  "tableName": "candidatesProfile",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

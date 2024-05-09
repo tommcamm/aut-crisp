@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "paths": {
+    "/recruiters/profiles": {
+      "name": "/recruiters/profiles",
+      "lambdaFunction": "recruitersProfilesLambda",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/jobs": {
+      "name": "/jobs",
+      "lambdaFunction": "jobsLambda",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/notes": {
+      "name": "/notes",
+      "lambdaFunction": "notesLambda",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/categories": {
+      "name": "/categories",
+      "lambdaFunction": "categoriesLambda",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/candidates/profiles": {
+      "name": "/candidates/profiles",
+      "lambdaFunction": "candidatesProfilesLambda",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}

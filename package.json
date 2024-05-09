@@ -30,6 +30,11 @@
 	},
 	"dependencies": {
 		"@aws-amplify/ui-react": "^6.1.6",
+		"@fortawesome/fontawesome-svg-core": "^6.5.2",
+		"@fortawesome/free-brands-svg-icons": "^6.5.2",
+		"@fortawesome/free-regular-svg-icons": "^6.5.2",
+		"@fortawesome/free-solid-svg-icons": "^6.5.2",
+		"@fortawesome/react-fontawesome": "^0.2.0",
 		"@hookform/resolvers": "^3.3.4",
 		"@nivo/bar": "^0.84.0",
 		"@nivo/core": "^0.84.0",
@@ -45,6 +50,11 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-hook-form": "^7.49.3",
+		"react-password-strength-bar": "^0.4.1",
+		"react-spinners": "^0.13.8",
+		"react-toastify": "^10.0.5",
+		"ts-pattern": "^5.1.1",
+		"uuid": "^9.0.1",
 		"zustand": "^4.5.0"
 	},
 	"devDependencies": {

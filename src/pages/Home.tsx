@@ -1,16 +1,18 @@
 import type { FunctionComponent } from "../common/types";
 import { Footer } from "../components/layout/footer";
 import { Navbar } from "../components/layout/navbar";
+import { Carousel } from "../components/layout/carousel";
+
+import 'react-toastify/dist/ReactToastify.css';
+import { Toasts } from "../components/ui/toasts";
 
 export const Home = (): FunctionComponent => {
+
 	return (
-		<div>
+		<div className="flex flex-col h-screen justify-between">
 			<Navbar/>
-			<div className="w-screen h-screen flex flex-col justify-center items-center ">
-				<p className="text-gray-600 text-5xl">
-					this page is WIP
-				</p>
-			</div>
+			<Carousel />
+			<Toasts />
 			<Footer/>
 		</div>
 	);
