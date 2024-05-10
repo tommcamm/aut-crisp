@@ -1,9 +1,9 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
-import {getCurrentUser} from 'aws-amplify/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressCard, faUser } from '@fortawesome/free-regular-svg-icons';
 import { faArrowRightFromBracket, faArrowRightToBracket, faGear, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { getSignedInUserProperties, isUserAuthenticated } from "../../common/utils";
 
 // Helper function to generate class names dynamically
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -14,18 +14,13 @@ function classNames(...classes: Array<string>) {
 
 export const SignInOutMenu: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [name, setName] = useState<string>("");
 
   const checkAuth = async () : Promise<void> => {
-    try {
-      const { username, userId, signInDetails } = await getCurrentUser();
+    setIsAuthenticated(await isUserAuthenticated());
+    const userProperties = await getSignedInUserProperties();
 
-      console.log("username", username);
-      console.log("user id", userId);
-      console.log("sign-in details", signInDetails);
-      setIsAuthenticated(true);
-    } catch {
-      setIsAuthenticated(false);
-    }
+    setName(userProperties.firstName);
   };
 
   useEffect(() => {
@@ -53,6 +48,12 @@ export const SignInOutMenu: React.FC = () => {
         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           {isAuthenticated ? (
             <>
+              <Menu.Item>
+
+                  <p className={classNames('block px-4 py-2 text-sm text-gray-700')}>
+                    Howdy, <b>{name}</b>
+                </p>
+              </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
                   <a href="/profile" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
