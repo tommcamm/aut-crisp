@@ -7,18 +7,17 @@ export const ProfileSettingsForm = (): FunctionComponent => {
 	const [lastName, setLastName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 
-    async function fetchData() : Promise<void> {
-        const { firstName, lastName, email } = await getSignedInUserProperties();
+	async function fetchData(): Promise<void> {
+		const { firstName, lastName, email } = await getSignedInUserProperties();
 
-        setName(firstName);
-        setLastName(lastName);
-        setEmail(email);
-    }
-    
+		setName(firstName);
+		setLastName(lastName);
+		setEmail(email);
+	}
 
 	useEffect(() => {
-        void fetchData();
-    }, []);
+		void fetchData();
+	}, []);
 
 	return (
 		<section aria-labelledby="profile-settings">
@@ -50,7 +49,7 @@ export const ProfileSettingsForm = (): FunctionComponent => {
 									type="text"
 									name="first-name"
 									id="first-name"
-                                    value={name}
+									value={name}
 									autoComplete="cc-given-name"
 									className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
 								/>
@@ -67,7 +66,7 @@ export const ProfileSettingsForm = (): FunctionComponent => {
 									type="text"
 									name="last-name"
 									id="last-name"
-                                    value={lastName}
+									value={lastName}
 									autoComplete="cc-family-name"
 									className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
 								/>
@@ -85,7 +84,7 @@ export const ProfileSettingsForm = (): FunctionComponent => {
 									disabled={true}
 									name="email-address"
 									id="email-address"
-                                    value={email}
+									value={email}
 									className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
 								/>
 							</div>
@@ -113,13 +112,17 @@ export const ProfileSettingsForm = (): FunctionComponent => {
 								>
 									<span>Gender</span>
 								</label>
-								<input
-									type="text"
-									name="gender"
+								<select
 									id="gender"
-									autoComplete="gender"
+									name="gender"
 									className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
-								/>
+								>
+                                    <option>Choose</option>
+									<option>Female</option>
+									<option>Male</option>
+									<option>Other</option>
+                                    <option>Prefer not to say</option>
+								</select>
 							</div>
 						</div>
 					</div>
