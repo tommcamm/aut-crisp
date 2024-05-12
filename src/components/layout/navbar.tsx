@@ -7,7 +7,7 @@ import { SignInOutMenu } from "../ui/sign-in-out-menu";
 const navigation = [
     { name: 'Dashboard', href: '#', current: false },
     { name: 'Open Jobs', href: '#', current: false },
-    { name: 'About', href: '#', current: false },
+    { name: 'About', href: '/about', current: false },
 
   ]
 
