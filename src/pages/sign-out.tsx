@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { signOut } from 'aws-amplify/auth';
 import { useNavigate } from "@tanstack/react-router";
 import { Route } from "../routes/sign-out";
+import { successToast } from "../common/enums";
 
 export const SignOutPage = (): FunctionComponent => {
 
@@ -14,7 +15,7 @@ export const SignOutPage = (): FunctionComponent => {
             try {
                 await signOut();
                 setTimeout(() => {
-                    void navigate({to: '/', search: {fromSignOut: true} });
+                    void navigate({to: '/', search: {toastID: successToast.signOut} });
                 }, 1500);
             } catch (error) {
                 console.error('Error signing out:', error);

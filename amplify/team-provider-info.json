@@ -14,28 +14,29 @@
     },
     "categories": {
       "auth": {
-        "crisp32e1fca3": {}
+        "crisp32e1fca3": {},
+        "crisp": {}
       },
       "function": {
         "recruitersProfilesLambda": {
           "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
-          "s3Key": "amplify-builds/recruitersProfilesLambda-4638314e34737a6d4248-build.zip"
+          "s3Key": "amplify-builds/recruitersProfilesLambda-36396575484946424d68-build.zip"
         },
         "notesLambda": {
           "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
-          "s3Key": "amplify-builds/notesLambda-6b4e2f6a3566612f782f-build.zip"
+          "s3Key": "amplify-builds/notesLambda-4d514c696d4765577675-build.zip"
         },
         "categoriesLambda": {
           "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
-          "s3Key": "amplify-builds/categoriesLambda-57663376315a652b6471-build.zip"
+          "s3Key": "amplify-builds/categoriesLambda-4130526f574855593942-build.zip"
         },
         "jobsLambda": {
           "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
-          "s3Key": "amplify-builds/jobsLambda-636b3333494236394354-build.zip"
+          "s3Key": "amplify-builds/jobsLambda-71534a306f546d693544-build.zip"
         },
         "candidatesProfilesLambda": {
           "deploymentBucketName": "amplify-crisp-dev-192451-deployment",
-          "s3Key": "amplify-builds/candidatesProfilesLambda-2b4f33614c436d496349-build.zip"
+          "s3Key": "amplify-builds/candidatesProfilesLambda-6a67747a4f654d75476d-build.zip"
         }
       },
       "storage": {

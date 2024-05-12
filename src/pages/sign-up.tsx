@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable no-duplicate-imports */
 import type React from "react";
@@ -7,11 +8,27 @@ import { useState } from "react";
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { signUp } from "aws-amplify/auth";
 import { useNavigate  } from '@tanstack/react-router';
-
+import { RadioUserType } from "../components/forms/radio-usertype";
+import { UserConfirmForm } from "../components/forms/user-confirm";
+import { confirmType, successToast } from "../common/enums";
+import { isUserAuthenticated } from "../common/utils";
 
 export const SignUpPage = (): FunctionComponent => {
+    const navigate = useNavigate({ from: '/sign-up' });
+
+    isUserAuthenticated() // If user is already authenticated it will be brought to home-page
+    .then((authenticated) => {
+        if (authenticated) {
+            void navigate({ to: "/" });
+        }
+    })
+    .catch((error) => {
+        console.error("Failed to check authentication:", error);
+    });
+
     // State to hold form inputs
-    const [username, setUsername] = useState<string>("");
+    const [name, setName] = useState<string>("");
+    const [familyName, setFamilyName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
@@ -20,7 +37,7 @@ export const SignUpPage = (): FunctionComponent => {
     const [error, setError] = useState<string>("");
     const [passwordsMatch, setPasswordsMatch] = useState<boolean>(true);
 
-    const navigate = useNavigate({ from: '/sign-up' });
+    const [confirmSignUp, setConfirmSignUp] = useState<boolean>(false);
 
     async function handleSignUp(event: React.FormEvent<HTMLFormElement>) :Promise<void> {
         event.preventDefault(); 
@@ -34,23 +51,29 @@ export const SignUpPage = (): FunctionComponent => {
             setError('Passwords do not match');
             return;
         }
-        
-        // TODO: write the logic for sign up.
+
         try {
             const { isSignUpComplete, nextStep } = await signUp({
               username: email,
               password,
               options: {
                 userAttributes: {
-                  email
+                  email,
+                  name,
+                  family_name: familyName
                 },
                 autoSignIn: true
               }
             });
 
-            // User authenticated, redirect
+            console.log('Sign up complete?', isSignUpComplete);
+            console.log('Next step:', nextStep);
+
+            // User authenticated, confirmation stage then redirect
             if (isSignUpComplete) {
-                await navigate({to: '/', search: {fromSignUp: true} });
+                await navigate({to: '/', search: {toastID: successToast.signUp} });
+            } else if (nextStep.signUpStep === "CONFIRM_SIGN_UP") {
+                setConfirmSignUp(true);
             }
 
           } catch (error) {
@@ -72,7 +95,7 @@ export const SignUpPage = (): FunctionComponent => {
                     <h3 className="text-gray-600 text-3xl text-center">CRISP.NZ</h3>
                 </a>
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                    Create your new account
+                    Create a new account
                 </h2>
             </div>
 
@@ -95,25 +118,48 @@ export const SignUpPage = (): FunctionComponent => {
                     </div>
                 )}
 
+                {confirmSignUp ? (
+                <UserConfirmForm email={email} type={confirmType.signUp} redirect="/"/>
+                ) : (
                 <form className="space-y-6 pt-3" onSubmit={handleSignUp}>
-                    {/* Username */}
+                    {/* Name */}
                     <div>
-                        <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
-                            Username
+                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                            Name
                         </label>
                         <div className="mt-2">
                             <input
-                                id="username"
-                                name="username"
+                                id="name"
+                                name="name"
                                 type="text"
-                                placeholder="yourUsername"
+                                placeholder="John"
                                 required
                                 className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                value={username}
-                                onChange={un => {setUsername(un.target.value)}}
+                                value={name}
+                                onChange={nm => {setName(nm.target.value)}}
                             />
                         </div>
                     </div>
+
+                    {/* Family Name */}
+                    <div>
+                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                            Family Name
+                        </label>
+                        <div className="mt-2">
+                            <input
+                                id="familyName"
+                                name="familyName"
+                                type="text"
+                                placeholder="Doe"
+                                required
+                                className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                value={familyName}
+                                onChange={fnm => {setFamilyName(fnm.target.value)}}
+                            />
+                        </div>
+                    </div>
+
 
                     {/* Email */}
                     <div>
@@ -183,17 +229,19 @@ export const SignUpPage = (): FunctionComponent => {
                             )}
                         </div>
                     </div>
+                    {/* User type */}
+                    <RadioUserType />
 
                     {/* Submit Button */}
                     <div>
                         <button
                             type="submit"
-                            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        >
+                            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Sign up
                         </button>
                     </div>
                 </form>
+                )}
             </div>
         </div>
     );

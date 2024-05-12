@@ -16,7 +16,7 @@ Amplify.configure(config);
 // 404 configuration	
 const notFoundRoute = new NotFoundRoute({
 	getParentRoute: () => Route,
-	component: () => NotFoundPage,
+	component: NotFoundPage,
   })
 
 const router = createRouter({ routeTree, notFoundRoute });

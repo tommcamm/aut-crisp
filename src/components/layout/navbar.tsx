@@ -5,9 +5,9 @@ import { SignInOutMenu } from "../ui/sign-in-out-menu";
 
 
 const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
+    { name: 'Dashboard', href: '#', current: false },
     { name: 'Open Jobs', href: '#', current: false },
-    { name: 'About', href: '#', current: false },
+    { name: 'About', href: '/about', current: false },
 
   ]
 
@@ -39,7 +39,7 @@ export const Navbar = (): FunctionComponent => {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                    <span className="text-white">CRISP.NZ</span>
+                    <a className="text-white" href="/">CRISP.NZ</a>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
