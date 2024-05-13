@@ -59,6 +59,9 @@ importers:
       aws-amplify:
         specifier: ^6.0.21
         version: 6.0.21
+      class-transformer:
+        specifier: ^0.5.1
+        version: 0.5.1
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
@@ -3504,6 +3507,9 @@ packages:
 
   citty@0.1.5:
     resolution: {integrity: sha512-AS7n5NSc0OQVMV9v6wt3ByujNIrne0/cTjiC2MYqhvao57VNfiuVksTSr2p17nVOhEr2KtqiAkGwHcgMC/qUuQ==}
+
+  class-transformer@0.5.1:
+    resolution: {integrity: sha512-SQa1Ws6hUbfC98vKGxZH3KFY0Y1lm5Zm0SY8XX9zbK7FJCyVEac3ATW0RIpwzW+oOfmHE5PMPufDG9hCfoEOMw==}
 
   clean-regexp@1.0.0:
     resolution: {integrity: sha512-GfisEZEJvzKrmGWkvfhgzcz/BllN1USeqD2V6tg14OAOgaCD2Z/PUEuxnAZ/nPvmaHRG7a8y77p1T/IRQ4D1Hw==}
@@ -11726,6 +11732,8 @@ snapshots:
   citty@0.1.5:
     dependencies:
       consola: 3.2.3
+
+  class-transformer@0.5.1: {}
 
   clean-regexp@1.0.0:
     dependencies:

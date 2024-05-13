@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { FunctionComponent } from "../common/types";
 import { Footer } from "../components/layout/footer";
 import { Navbar } from "../components/layout/navbar";
-import { getSignedInUserProperties } from "../common/utils"
+import { getSignedInUserProperties } from "../common/api/auth-api";
 
 export const ProfilePage = (): FunctionComponent => {
     const [name, setName] = useState<string>("");
@@ -10,9 +10,9 @@ export const ProfilePage = (): FunctionComponent => {
 	const [email, setEmail] = useState<string>("");
 
     async function fetchData() : Promise<void> {
-        const { firstName, lastName, email } = await getSignedInUserProperties();
+        const {email} = await getSignedInUserProperties();
 
-        setName(firstName);
+        setName(name);
         setLastName(lastName);
         setEmail(email);
     }

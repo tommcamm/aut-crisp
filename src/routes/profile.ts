@@ -1,7 +1,7 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { ProfilePage } from "../pages/profile";
-import { isUserAuthenticated } from "../common/utils";
 import { successToast } from "../common/enums";
+import { isUserAuthenticated } from "../common/api/auth-api";
 
 
 export const Route = createFileRoute("/profile")({

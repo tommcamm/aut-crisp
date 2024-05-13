@@ -46,6 +46,7 @@
 		"@tanstack/react-table": "^8.11.7",
 		"@tanstack/router-vite-plugin": "^1.15.4",
 		"aws-amplify": "^6.0.21",
+		"class-transformer": "^0.5.1",
 		"dayjs": "^1.11.10",
 		"fp-ts": "^2.16.5",
 		"react": "^18.2.0",
