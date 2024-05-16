@@ -1,15 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressCard, faUser } from '@fortawesome/free-regular-svg-icons';
 import { faArrowRightFromBracket, faArrowRightToBracket, faGear, faUserPlus } from '@fortawesome/free-solid-svg-icons'
-import { getSignedInUserProperties, isUserAuthenticated } from "../../common/utils";
-
-// Helper function to generate class names dynamically
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function classNames(...classes: Array<string>) {
-    return classes.filter(Boolean).join(' ')
-}
+import { getSignedInUserProperties, isUserAuthenticated } from "../../common/api/auth-api";
+import { classNames } from "../../common/utils";
 
 
 export const SignInOutMenu: React.FC = () => {
@@ -20,7 +16,7 @@ export const SignInOutMenu: React.FC = () => {
     setIsAuthenticated(await isUserAuthenticated());
     const userProperties = await getSignedInUserProperties();
 
-    setName(userProperties.firstName);
+    setName("WIP");
   };
 
   useEffect(() => {

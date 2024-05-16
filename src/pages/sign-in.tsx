@@ -9,8 +9,8 @@ import { Route } from "../routes/auth";
 import { useNavigate, useSearch } from "@tanstack/react-router";
 import { successToast } from "../common/enums";
 import { Toasts } from "../components/ui/toasts";
-import { isUserAuthenticated } from "../common/utils";
 import { UserConfirmForm } from "../components/forms/user-confirm";
+import { isUserAuthenticated } from "../common/api/auth-api";
 
 export const SignInPage = (): FunctionComponent => {
 	const navigate = useNavigate({ from: Route.fullPath });

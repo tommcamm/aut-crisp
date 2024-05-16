@@ -1,8 +1,7 @@
 import { RadioGroup } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { useState } from 'react';
-import { classNames } from '../../common/utils';
-
+import { classNames } from "../../common/utils";
 const userTypes = [
     { id: 1, title: 'Job Seeker', description: 'Browse thousands of job openings tailored to you'},
     { id: 2, title: 'Recruiter', description: 'Find the perfect candidate for your company'},

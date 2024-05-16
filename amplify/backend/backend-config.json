@@ -62,8 +62,7 @@
         },
         "signupAttributes": [
           "EMAIL",
-          "NAME",
-          "FAMILY_NAME"
+          "PICTURE"
         ],
         "socialProviders": [],
         "usernameAttributes": [

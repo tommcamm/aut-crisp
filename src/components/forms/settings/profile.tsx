@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { FunctionComponent } from "../../../common/types";
-import { getSignedInUserProperties } from "../../../common/utils";
+import { getSignedInUserProperties } from "../../../common/api/auth-api";
 
 export const ProfileSettingsForm = (): FunctionComponent => {
 	const [name, setName] = useState<string>("");
@@ -8,9 +8,9 @@ export const ProfileSettingsForm = (): FunctionComponent => {
 	const [email, setEmail] = useState<string>("");
 
 	async function fetchData(): Promise<void> {
-		const { firstName, lastName, email } = await getSignedInUserProperties();
+		const { email } = await getSignedInUserProperties();
 
-		setName(firstName);
+		setName(name);
 		setLastName(lastName);
 		setEmail(email);
 	}
