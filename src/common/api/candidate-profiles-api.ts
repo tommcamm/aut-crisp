@@ -1,63 +1,78 @@
 import { CandidateProfile, Convert } from "../data/candidate-profile";
-import { getAuthHeaders } from "./auth-api";
-const baseUrl = 'https://api.crisp.nz/profiles';
+import { get, post, put } from "aws-amplify/api";
 
+const baseUrl = "/candidates/profiles";
 
 // Create a new profile
 export async function createProfile(profile: CandidateProfile): Promise<void> {
-  const headers = await getAuthHeaders();
-  const response = await fetch(baseUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      ...headers
-    },
-    body: JSON.stringify(profile)
-  });
-  if (!response.ok) {
-    throw new Error('Failed to create profile');
-  }
-  // Do nothing after profile is created
+	try {
+		const restOperation = post({
+			apiName: "crispApi",
+			path: `${baseUrl}`,
+			options: { body: profile as unknown as undefined},
+		});
+		const response = await restOperation.response;
+		console.log("POST call succeeded:", response);
+	} catch (error) {
+		console.log("POST call failed:", error);
+		throw new Error("Failed to fetch profiles");
+	}
+	// Do nothing after profile is created
 }
 
 // Fetch all profiles
 export async function fetchProfiles(): Promise<Array<CandidateProfile>> {
-  const headers = await getAuthHeaders();
-  const response = await fetch(baseUrl, {
-    method: 'GET',
-    headers
-  });
-  if (!response.ok) {
-    throw new Error('Failed to fetch profiles');
-  } return Convert.toCandidateProfiles(await response.json() as string);
+	try {
+		const restOperation = get({
+			apiName: "crispApi",
+			path: "/candidates/profiles",
+		});
+		const response = await restOperation.response;
+		console.log("GET call succeeded:", response);
+
+		return Convert.toCandidateProfiles(await response.body.text());
+	} catch (error) {
+		console.log("GET call failed:", error);
+		throw new Error("Failed to fetch profiles");
+	}
 }
 
 // Fetch a specific profile by ID
 export async function fetchProfileById(id: string): Promise<CandidateProfile> {
-  const headers = await getAuthHeaders();
-  const response = await fetch(`${baseUrl}/${id}`, {
-    method: 'GET',
-    headers
-  });
-  if (!response.ok) {
-    throw new Error(`Failed to fetch profile with ID: ${id}`);
-  }
-  return Convert.toCandidateProfile(await response.json() as string);
+	try {
+		const restOperation = get({
+			apiName: "crispApi",
+			path: `${baseUrl}/${id}`,
+		});
+		const response = await restOperation.response;
+		console.log("GET call succeeded:", response);
+
+		return Convert.toCandidateProfile(
+			await response.body.text()
+		)[0] as CandidateProfile;
+	} catch (error) {
+		console.log("GET call failed:", error);
+		throw new Error("Failed to fetch profiles");
+	}
 }
 
 // Update a profile
-export async function updateProfile(id: string, profile: CandidateProfile): Promise<CandidateProfile> {
-  const headers = await getAuthHeaders();
-  const response = await fetch(`${baseUrl}/${id}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      ...headers
-    },
-    body: JSON.stringify(profile)
-  });
-  if (!response.ok) {
-    throw new Error(`Failed to update profile with ID: ${id}`);
-  }
-  return Convert.toCandidateProfile(await response.json() as string);
+export async function updateProfile(
+	profile: CandidateProfile
+): Promise<CandidateProfile> {
+
+	console.log("Profile to update:", profile);
+	try {
+		const restOperation = put({
+			apiName: "crispApi",
+			path: `${baseUrl}`,
+			options: { body: profile as unknown as undefined},
+		});
+		const response = await restOperation.response;
+		console.log("PUT call succeeded:", response);
+		return Convert.toCandidateProfile(await response.body.text());
+	} catch (error) {
+		console.log("PUT call failed:", error);
+		throw new Error("Failed to fetch profiles");
+	}
 }

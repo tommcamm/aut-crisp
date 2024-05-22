@@ -1,9 +1,3 @@
-// To parse this data:
-//
-//   import { Convert, CandidateProfiles } from "./file";
-//
-//   const candidateProfiles = Convert.toCandidateProfiles(json);
-
 export interface CandidateProfile {
     cvUri:    string;
     dob:      string;

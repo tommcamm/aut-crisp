@@ -1,18 +1,37 @@
+/* eslint-disable unicorn/consistent-function-scoping */
+/* eslint-disable @typescript-eslint/require-await */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { useEffect, useState } from "react";
 import type { FunctionComponent } from "../../../common/types";
-import { getSignedInUserProperties } from "../../../common/api/auth-api";
+import { fetchCandidateUserData } from "../../../common/utils";
+import { updateProfile } from "../../../common/api/candidate-profiles-api";
+
 
 export const ProfileSettingsForm = (): FunctionComponent => {
 	const [name, setName] = useState<string>("");
 	const [lastName, setLastName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
+	const [dob, setDob] = useState<string>("");
 
 	async function fetchData(): Promise<void> {
-		const { email } = await getSignedInUserProperties();
+		const profile = await fetchCandidateUserData();
+		setName(profile.name);
+		setLastName(profile.lastName);
+		setEmail(profile.email);
+		setDob(profile.dob);
+	}
 
-		setName(name);
-		setLastName(lastName);
-		setEmail(email);
+	async function handleProfileSave(
+		event: React.FormEvent<HTMLFormElement>
+	): Promise<void> {
+		event.preventDefault();
+
+		const profile = await fetchCandidateUserData();
+		profile.name = name;
+		profile.lastName = lastName;
+		profile.dob = dob;
+
+		await updateProfile(profile);
 	}
 
 	useEffect(() => {
@@ -21,7 +40,7 @@ export const ProfileSettingsForm = (): FunctionComponent => {
 
 	return (
 		<section aria-labelledby="profile-settings">
-			<form action="#">
+			<form onSubmit={handleProfileSave}>
 				<div className="shadow sm:rounded-md sm:overflow-hidden">
 					<div className="bg-white py-6 px-4 sm:p-6">
 						<div>
@@ -50,6 +69,9 @@ export const ProfileSettingsForm = (): FunctionComponent => {
 									name="first-name"
 									id="first-name"
 									value={name}
+									onChange={(name) => {
+										setName(name.target.value);
+									}}
 									autoComplete="cc-given-name"
 									className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
 								/>
@@ -67,6 +89,9 @@ export const ProfileSettingsForm = (): FunctionComponent => {
 									name="last-name"
 									id="last-name"
 									value={lastName}
+									onChange={(lastName) => {
+										setLastName(lastName.target.value);
+									}}
 									autoComplete="cc-family-name"
 									className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
 								/>
@@ -101,28 +126,12 @@ export const ProfileSettingsForm = (): FunctionComponent => {
 									name="date-of-birth"
 									id="date-of-birth"
 									autoComplete="date-of-birth"
+									value={dob}
+									onChange={(newDob) => {
+										setDob(newDob.target.value);
+									}}
 									className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
 								/>
-							</div>
-
-							<div className="col-span-4 sm:col-span-1">
-								<label
-									htmlFor="gender"
-									className="flex items-center text-sm font-medium text-gray-700"
-								>
-									<span>Gender</span>
-								</label>
-								<select
-									id="gender"
-									name="gender"
-									className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
-								>
-                                    <option>Choose</option>
-									<option>Female</option>
-									<option>Male</option>
-									<option>Other</option>
-                                    <option>Prefer not to say</option>
-								</select>
 							</div>
 						</div>
 					</div>
