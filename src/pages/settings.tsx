@@ -8,7 +8,7 @@ import {
 import type { FunctionComponent } from "../common/types";
 import { Footer } from "../components/layout/footer";
 import { Navbar } from "../components/layout/navbar";
-import { ProfileSettingsForm } from "../components/forms/settings/profile";
+import { ProfileSettingsForm } from "../components/forms/settings/recruiter-profile";
 import { classNames } from "../common/utils";
 
 const subNavigation = [
