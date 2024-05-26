@@ -1,6 +1,10 @@
 /* eslint-disable unicorn/prevent-abbreviations */
 import { getSignedInUserProperties } from "./api/auth-api";
-import { createProfile, fetchProfileById } from "./api/candidate-profiles-api";
+import {
+	createProfile,
+	fetchProfileById,
+	updateProfile,
+} from "./api/candidate-profiles-api";
 import { CandidateProfile } from "./data/candidate-profile";
 import { getUrl, remove, uploadData } from "aws-amplify/storage";
 
@@ -72,7 +76,7 @@ export async function getProfilePicUrl(): Promise<string> {
 
 export async function getDefaultProfilePicUrl(): Promise<string> {
 	const { name } = await fetchCandidateUserData();
-	
+
 	return `https://api.dicebear.com/8.x/initials/svg?seed=${name}`;
 }
 
@@ -85,3 +89,80 @@ export async function removeProfilePic(): Promise<void> {
 		console.log("Error removing pic:", error);
 	}
 }
+
+export async function uploadProfileVideo(file: File): Promise<void> {
+	const profile = await fetchCandidateUserData();
+	const s3path = `public/profileVideos/${profile.videoUri === "" ? crypto.randomUUID() : profile.videoUri}.mp4`;
+	try {
+		const result = await uploadData({
+			path: s3path,
+			data: file,
+		}).result;
+		console.log("Video upload Succeeded:", result);
+
+		// Updating the profile dataset with additional info
+		if (profile.videoUri === "") {
+			profile.videoUri = s3path;
+			await updateProfile(profile);
+		}
+
+		console.log("Profile updated with video URI");
+	} catch (error) {
+		console.log("Video uplaod Error :", error);
+		throw new Error("Error uploading video");
+	}
+}
+
+export async function getPublicResource(s3url: string): Promise<string> {
+	try {
+		const getUrlResult = await getUrl({
+			path: s3url,
+			options: {
+				validateObjectExistence: true, // Check if object exists before creating a URL
+			},
+		});
+		console.log("signed URL:", getUrlResult.url);
+		return getUrlResult.url.href;
+	} catch (error) {
+		if (error instanceof Error && error.name === "NotFound") {
+			console.log("File not found");
+			throw error;
+		} else {
+			throw error;
+		}
+	}
+}
+
+export async function removePublicResource(s3url: string): Promise<void> {
+	try {
+		await remove({
+			path: s3url,
+		});
+	} catch (error) {
+		console.log("Error removing pic:", error);
+	}
+}
+
+export async function uploadProfileCv(file: File): Promise<void> {
+	const profile = await fetchCandidateUserData();
+	const s3path = `public/profileCvs/${profile.cvUri === "" ? crypto.randomUUID() : profile.cvUri}.pdf`;
+	try {
+		const result = await uploadData({
+			path: s3path,
+			data: file,
+		}).result;
+		console.log("CV upload Succeeded:", result);
+
+		// Updating the profile dataset with additional info
+		if (profile.cvUri === "") {
+			profile.cvUri = s3path;
+			await updateProfile(profile);
+		}
+
+		console.log("Profile updated with CV URI");
+	} catch (error) {
+		console.log("CV uplaod Error :", error);
+		throw new Error("Error uploading video");
+	}
+}
+

@@ -11,6 +11,9 @@ import { Navbar } from "../components/layout/navbar";
 import { SeekerProfileSettingsForm } from "../components/forms/settings/seeker-profile";
 import { classNames } from "../common/utils";
 import { SeekerProfilePic } from "../components/forms/settings/seeker-pic";
+import { useState } from "react";
+import { SeekerProfileVideo } from "../components/forms/settings/seeker-video";
+import { SeekerProfileCv } from "../components/forms/settings/seeker-cv";
 
 const subNavigation = [
 	{ name: "Profile", href: "#", icon: UserCircleIcon, current: true },
@@ -20,6 +23,9 @@ const subNavigation = [
 ];
 
 export const SettingsPage = (): FunctionComponent => {
+
+	const [page, setPage] = useState<string>("Profile");
+
 	return (
 		<div className="flex flex-col h-screen">
 			<Navbar />
@@ -56,6 +62,8 @@ export const SettingsPage = (): FunctionComponent => {
 					<div className="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
 						<SeekerProfileSettingsForm />
 						<SeekerProfilePic />
+						<SeekerProfileVideo />
+						<SeekerProfileCv />
 					</div>
 				</div>
 			</main>
