@@ -8,8 +8,9 @@ import {
 import type { FunctionComponent } from "../common/types";
 import { Footer } from "../components/layout/footer";
 import { Navbar } from "../components/layout/navbar";
-import { ProfileSettingsForm } from "../components/forms/settings/recruiter-profile";
+import { SeekerProfileSettingsForm } from "../components/forms/settings/seeker-profile";
 import { classNames } from "../common/utils";
+import { SeekerProfilePic } from "../components/forms/settings/seeker-pic";
 
 const subNavigation = [
 	{ name: "Profile", href: "#", icon: UserCircleIcon, current: true },
@@ -53,7 +54,8 @@ export const SettingsPage = (): FunctionComponent => {
 						</nav>
 					</aside>
 					<div className="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-						<ProfileSettingsForm />
+						<SeekerProfileSettingsForm />
+						<SeekerProfilePic />
 					</div>
 				</div>
 			</main>

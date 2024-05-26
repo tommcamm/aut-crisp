@@ -7,7 +7,7 @@ import { fetchCandidateUserData } from "../../../common/utils";
 import { updateProfile } from "../../../common/api/candidate-profiles-api";
 
 
-export const ProfileSettingsForm = (): FunctionComponent => {
+export const SeekerProfileSettingsForm = (): FunctionComponent => {
 	const [name, setName] = useState<string>("");
 	const [lastName, setLastName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
