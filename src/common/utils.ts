@@ -143,6 +143,8 @@ export async function removePublicResource(s3url: string): Promise<void> {
 	}
 }
 
+// CV
+
 export async function uploadProfileCv(file: File): Promise<void> {
 	const profile = await fetchCandidateUserData();
 	const s3path = `public/profileCvs/${profile.cvUri === "" ? crypto.randomUUID() : profile.cvUri}.pdf`;
@@ -165,4 +167,3 @@ export async function uploadProfileCv(file: File): Promise<void> {
 		throw new Error("Error uploading video");
 	}
 }
-

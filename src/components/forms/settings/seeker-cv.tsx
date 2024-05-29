@@ -7,10 +7,9 @@ import {
 	fetchCandidateUserData,
 	getPublicResource,
 	removePublicResource,
-	uploadProfileVideo,
+	uploadProfileCv,
 } from "../../../common/utils";
-import { CheckCircleIcon } from "@heroicons/react/24/outline";
-import { Document } from "react-pdf";
+import { CheckCircleIcon, DocumentTextIcon } from "@heroicons/react/24/outline";
 
 export const SeekerProfileCv = (): FunctionComponent => {
 	const [cvUrl, setCvUrl] = useState<string>("");
@@ -34,14 +33,15 @@ export const SeekerProfileCv = (): FunctionComponent => {
 			const { videoUri } = await fetchCandidateUserData();
 			await removePublicResource(videoUri);
 			setSuccessMsg(true);
+			setCvUrl("");
 		} else if (file) {
 			try {
-				await uploadProfileVideo(file);
-				console.log("Video upload done.");
+				await uploadProfileCv(file);
+				console.log("CV upload done.");
 				setSuccessMsg(true);
 				void fetchData();
 			} catch (error) {
-				console.log("Video upload error:", error);
+				console.log("CV upload error:", error);
 			}
 		} else {
 			console.log("No file selected.");
@@ -57,6 +57,10 @@ export const SeekerProfileCv = (): FunctionComponent => {
 			};
 			reader.readAsDataURL(file);
 		}
+	};
+
+	const handleIconClick = (): void => {
+		window.open(cvUrl, "_blank");
 	};
 
 	useEffect(() => {
@@ -100,22 +104,35 @@ export const SeekerProfileCv = (): FunctionComponent => {
 								</div>
 							)}
 							<div className="mt-1 flex items-center pt-3">
-								<div className="">
-									<Document file="https://s1.q4cdn.com/806093406/files/doc_downloads/test.pdf" />
-								</div>
+								{(cvUrl === "" || cvUrl === "toRemove")  ? (
+									<div className="flex flex-col items-center text-red-500 cursor-not-allowed">
+										<DocumentTextIcon className="h-12 w-12 text-gray-400" />
+										<span className="text-sm text-gray-400">
+											CV not available
+										</span>
+									</div>
+								) : (
+									<div
+										className="flex flex-col items-center text-red-500 cursor-pointer"
+										onClick={handleIconClick}
+									>
+										<DocumentTextIcon className="h-12 w-12 text-blue-gray-900hover:text-blue-gray-700" />
+										<span className="text-sm text-blue-gray-900">Open PDF</span>
+									</div>
+								)}
 								<div className="ml-4 flex flex-col px-3">
 									<div className="flex">
 										<div className="relative bg-white py-2 px-3 border border-blue-gray-300 rounded-md shadow-sm flex items-center cursor-pointer hover:bg-blue-gray-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-blue-gray-50 focus-within:ring-blue-500">
 											<label
-												htmlFor="user-video"
+												htmlFor="user-cv"
 												className="relative text-sm font-medium text-blue-gray-900 pointer-events-none"
 											>
 												<span>Change</span>
-												<span className="sr-only"> user photo</span>
+												<span className="sr-only"> user cv </span>
 											</label>
 											<input
-												id="user-video"
-												name="user-video"
+												id="user-cv"
+												name="user-cv"
 												type="file"
 												onChange={handleCvChange}
 												className="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md"
