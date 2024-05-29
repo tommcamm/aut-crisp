@@ -7,6 +7,9 @@ import {
 } from "./api/candidate-profiles-api";
 import { CandidateProfile } from "./data/candidate-profile";
 import { getUrl, remove, uploadData } from "aws-amplify/storage";
+import { JobCategory, mergeCategoriesAndJobs } from "./data/job-opening";
+import { fetchJobs } from "./api/jobs-api";
+import { fetchCategories } from "./api/categories-api";
 
 // File used for common functions to be used in component
 export function classNames(...classes: Array<string>): string {
@@ -166,4 +169,14 @@ export async function uploadProfileCv(file: File): Promise<void> {
 		console.log("CV uplaod Error :", error);
 		throw new Error("Error uploading video");
 	}
+}
+
+// GET ALL AVAILABLE JOBS
+
+export async function getAvailableJobs(): Promise<Array<JobCategory>> {
+
+	const jobs = await fetchJobs();
+	const categories = await fetchCategories();
+
+	return mergeCategoriesAndJobs(categories, jobs);
 }

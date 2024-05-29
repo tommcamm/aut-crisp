@@ -25,7 +25,7 @@ export async function fetchProfiles(): Promise<Array<CandidateProfile>> {
 	try {
 		const restOperation = get({
 			apiName: "crispApi",
-			path: "/candidates/profiles",
+			path: `${baseUrl}`,
 		});
 		const response = await restOperation.response;
 		console.log("GET call succeeded:", response);
