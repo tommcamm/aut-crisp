@@ -10,5 +10,7 @@ export enum successToast {
 	signIn = 'signIn',
 	confirmedAcc = 'confirmedAcc',
 	signOut = 'signOut',
-	notAuthenticated = 'notAuthenticated'
+	notAuthenticated = 'notAuthenticated',
+	applicationSent = 'applicationSent',
+	applicationRemoved = 'applicationRemoved'
 }

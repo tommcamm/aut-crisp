@@ -62,8 +62,7 @@
         },
         "signupAttributes": [
           "EMAIL",
-          "NAME",
-          "FAMILY_NAME"
+          "PICTURE"
         ],
         "socialProviders": [],
         "usernameAttributes": [
@@ -276,6 +275,11 @@
     "recruitersProfile": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
+    },
+    "userStorage": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     }
   }
 }

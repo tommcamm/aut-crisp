@@ -9,26 +9,29 @@ import { Route } from "../routes/auth";
 import { useNavigate, useSearch } from "@tanstack/react-router";
 import { successToast } from "../common/enums";
 import { Toasts } from "../components/ui/toasts";
-import { isUserAuthenticated } from "../common/utils";
 import { UserConfirmForm } from "../components/forms/user-confirm";
+import { isUserAuthenticated } from "../common/api/auth-api";
 
 export const SignInPage = (): FunctionComponent => {
 	const navigate = useNavigate({ from: Route.fullPath });
 
-    const searchParameters :Record<string, unknown> = useSearch({strict: false});
-	const redirect :string = searchParameters['redirect'] as string ?? "/";
+	const searchParameters: Record<string, unknown> = useSearch({
+		strict: false,
+	});
+	const redirect: string = (searchParameters["redirect"] as string) ?? "/";
 
-    useEffect(() => { // only once..
-        isUserAuthenticated() // If user is already authenticated it will be brought to home-page
-		.then((authenticated) => {
-			if (authenticated) {
-				void navigate({ to: redirect });
-			} 
-		})
-		.catch((error) => {
-			console.error("Failed to check authentication:", error);
-		});
-    }, [redirect, navigate]);
+	useEffect(() => {
+		// only once..
+		isUserAuthenticated() // If user is already authenticated it will be brought to home-page
+			.then((authenticated) => {
+				if (authenticated) {
+					void navigate({ to: redirect });
+				}
+			})
+			.catch((error) => {
+				console.error("Failed to check authentication:", error);
+			});
+	}, [redirect, navigate]);
 
 	// State to hold form inputs
 	const [email, setEmail] = useState<string>("");
@@ -54,7 +57,10 @@ export const SignInPage = (): FunctionComponent => {
 			// Add any navigation or state updates here depending on 'nextStep' or 'isSignedIn'
 
 			if (isSignedIn) {
-				await navigate({to: redirect, search: { toastID: successToast.signIn } });
+				await navigate({
+					to: redirect,
+					search: { toastID: successToast.signIn },
+				});
 			} else if (nextStep.signInStep === "CONFIRM_SIGN_UP") {
 				setConfirmSignUp(true);
 			} else {
@@ -134,12 +140,22 @@ export const SignInPage = (): FunctionComponent => {
 								</div>
 
 								<div>
-									<label
-										htmlFor="password"
-										className="block text-sm font-medium leading-6 text-gray-900"
-									>
-										Password
-									</label>
+									<div className="flex items-center justify-between">
+										<label
+											htmlFor="password"
+											className="block text-sm font-medium leading-6 text-gray-900"
+										>
+											Password
+										</label>
+										<div className="text-sm">
+											<a
+												href="#"
+												className="font-semibold text-indigo-600 hover:text-indigo-500"
+											>
+												Forgot password?
+											</a>
+										</div>
+									</div>
 									<div className="mt-2">
 										<input
 											id="password"

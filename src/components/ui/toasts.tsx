@@ -35,6 +35,14 @@ export const Toasts = (): FunctionComponent => {
 				toast.warning("Authentication needed to access that page");
 				break;
 			}
+			case successToast.applicationSent: {
+				toast.success("Application sent successfully");
+				break;
+			}
+			case successToast.applicationRemoved: {
+				toast.success("Application removed successfully");
+				break;
+			}
 		} 
 	}, [toastID]);
 

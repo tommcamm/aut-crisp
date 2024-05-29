@@ -7,7 +7,10 @@ import { Route as SignUpImport } from './routes/sign-up'
 import { Route as SignOutImport } from './routes/sign-out'
 import { Route as SettingsImport } from './routes/settings'
 import { Route as ProfileImport } from './routes/profile'
+import { Route as OpenJobsImport } from './routes/open-jobs'
+import { Route as DashboardImport } from './routes/dashboard'
 import { Route as AuthImport } from './routes/auth'
+import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -32,8 +35,23 @@ const ProfileRoute = ProfileImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const OpenJobsRoute = OpenJobsImport.update({
+  path: '/open-jobs',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardRoute = DashboardImport.update({
+  path: '/dashboard',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AuthRoute = AuthImport.update({
   path: '/auth',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AboutRoute = AboutImport.update({
+  path: '/about',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -50,8 +68,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/about': {
+      preLoaderRoute: typeof AboutImport
+      parentRoute: typeof rootRoute
+    }
     '/auth': {
       preLoaderRoute: typeof AuthImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard': {
+      preLoaderRoute: typeof DashboardImport
+      parentRoute: typeof rootRoute
+    }
+    '/open-jobs': {
+      preLoaderRoute: typeof OpenJobsImport
       parentRoute: typeof rootRoute
     }
     '/profile': {
@@ -77,7 +107,10 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
+  AboutRoute,
   AuthRoute,
+  DashboardRoute,
+  OpenJobsRoute,
   ProfileRoute,
   SettingsRoute,
   SignOutRoute,
