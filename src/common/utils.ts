@@ -174,9 +174,60 @@ export async function uploadProfileCv(file: File): Promise<void> {
 // GET ALL AVAILABLE JOBS
 
 export async function getAvailableJobs(): Promise<Array<JobCategory>> {
-
+	const profile: CandidateProfile = await fetchCandidateUserData();
 	const jobs = await fetchJobs();
 	const categories = await fetchCategories();
 
-	return mergeCategoriesAndJobs(categories, jobs);
+	const notAppliedJobs = jobs.filter((job) => !profile.jobId.includes(job.id));
+
+	return mergeCategoriesAndJobs(categories, notAppliedJobs);
 }
+
+// APPLY TO A JOB
+export async function applyToJob(jobId: string): Promise<void> {
+	try {
+		const profile: CandidateProfile = await fetchCandidateUserData();
+
+		if (!profile.jobId.includes(jobId)) {
+			profile.jobId.push(jobId);
+		}
+
+		await updateProfile(profile);
+
+		console.log("Successfully applied to the job:", jobId);
+	} catch (error) {
+		console.error("Error applying to the job:", error);
+	}
+}
+
+// GET ALL JOB WITH APPLICATION
+export async function getAllAppliedJobs(): Promise<Array<JobCategory>> {
+	const profile: CandidateProfile = await fetchCandidateUserData();
+	const jobs = await fetchJobs();
+	const categories = await fetchCategories();
+
+	const appliedJobs = jobs.filter((job) => profile.jobId.includes(job.id));
+
+	return mergeCategoriesAndJobs(categories, appliedJobs);
+}
+
+// REMOVE APPLICATION TO A JOB
+export async function removeApplicationToJob(jobId: string): Promise<void> {
+	try {
+	  // Fetch candidate user data
+	  const profile: CandidateProfile = await fetchCandidateUserData();
+  
+	  // Check if the jobId exists in the jobId list and remove it
+	  const jobIndex = profile.jobId.indexOf(jobId);
+	  if (jobIndex > -1) {
+		profile.jobId.splice(jobIndex, 1);
+	  }
+  
+	  // Update the candidate profile with the new jobId list
+	  await updateProfile(profile);
+  
+	  console.log("Successfully removed application for the job:", jobId);
+	} catch (error) {
+	  console.error("Error removing application for the job:", error);
+	}
+  }

@@ -30,7 +30,7 @@ export async function fetchJobById(id: string): Promise<Job> {
 		const response = await restOperation.response;
 		console.log("GET call succeeded:", response);
 
-		return Convert.toJob(await response.body.text());
+		return Convert.toJob(await response.body.text())[0] as Job;
 	} catch (error) {
 		console.log("GET call failed:", error);
 		throw new Error("Failed to fetch profiles");
