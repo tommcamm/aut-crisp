@@ -7,24 +7,26 @@ import { useEffect, useState } from "react";
 import { SeekerDashboard } from "../components/layout/seeker/seeker-dashboard";
 
 export const Dashboard = (): FunctionComponent => {
+	const [userType, setUserType] = useState<string>("");
 
-    const [userType, setUserType] = useState<string>("");
-    
-
-    async function fetchData(): Promise<void> {
+	async function fetchData(): Promise<void> {
 		const { userType } = await getSignedInUserProperties();
-        setUserType(userType);
+		setUserType(userType);
 	}
 
-    useEffect(() => {
+	useEffect(() => {
 		void fetchData();
 	}, []);
-    return(
-        <div className="flex flex-col h-screen justify-between">
-            <Navbar currentPage="dashboard"/>
-                {userType === "Job Seeker" && 
-                <SeekerDashboard />}
-            <Footer/>
-        </div>
-    );
-}
+	return (
+		<div className="flex flex-col h-screen justify-between">
+			<Navbar currentPage="dashboard" />
+			{userType === "Job Seeker" && <SeekerDashboard />}
+			{userType === "Recruiter" && (
+				<>
+					<p>TODO: Implement recruiter dashboard</p>
+				</>
+			)}
+			<Footer />
+		</div>
+	);
+};
