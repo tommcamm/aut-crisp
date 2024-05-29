@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import type { FunctionComponent } from "../common/types";
 import { Footer } from "../components/layout/footer";
 import { Navbar } from "../components/layout/navbar";
-import { getSignedInUserProperties } from "../common/api/auth-api";
 import {
 	getDefaultProfilePicUrl,
 	getProfilePicUrl,
@@ -20,10 +19,6 @@ export const ProfilePage = (): FunctionComponent => {
 	}
 
 
-    const [name, setName] = useState<string>("");
-	const [lastName, setLastName] = useState<string>("");
-	const [email, setEmail] = useState<string>("");
-    
 
 	useEffect(() => {
         void fetchData();
@@ -38,8 +33,8 @@ export const ProfilePage = (): FunctionComponent => {
                         <img src={picUrl} className="inline-block h-48 w-48 rounded-md" alt=""/>
                     </div>
                     <div className="w-full md:w-2/3 pl-4 md:pl-6">
-                        <h2 className="text-2xl font-bold">{name} {lastName}</h2>
-                        <p className="text-lg">email: {email}</p>
+                        <h2 className="text-2xl font-bold"> name, last name </h2>
+                        <p className="text-lg">email: test@email.com</p>
                         <p className="text-lg">My skills</p>
                         <p>About me: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum voluptate eaque minus sit earum, reprehenderit aspernatur. Facere quasi distinctio perspiciatis quod, ut, accusamus tempore labore commodi corporis iure ea ipsum.</p>
                     </div>
