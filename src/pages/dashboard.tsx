@@ -5,6 +5,7 @@ import { Navbar } from "../components/layout/navbar";
 
 import { useEffect, useState } from "react";
 import { SeekerDashboard } from "../components/layout/seeker/seeker-dashboard";
+import { RecruiterDashboard } from "../components/layout/recruiter/recruiter-dashboard";
 
 export const Dashboard = (): FunctionComponent => {
 	const [userType, setUserType] = useState<string>("");
@@ -21,11 +22,7 @@ export const Dashboard = (): FunctionComponent => {
 		<div className="flex flex-col h-screen justify-between">
 			<Navbar currentPage="dashboard" />
 			{userType === "Job Seeker" && <SeekerDashboard />}
-			{userType === "Recruiter" && (
-				<>
-					<p>TODO: Implement recruiter dashboard</p>
-				</>
-			)}
+			{userType === "Recruiter" && <RecruiterDashboard/> }
 			<Footer />
 		</div>
 	);
