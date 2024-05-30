@@ -167,7 +167,7 @@ export async function uploadProfileCv(file: File): Promise<void> {
 
 		console.log("Profile updated with CV URI");
 	} catch (error) {
-		console.log("CV uplaod Error :", error);
+		console.log("CV upload Error :", error);
 		throw new Error("Error uploading video");
 	}
 }
