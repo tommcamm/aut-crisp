@@ -1,4 +1,0 @@
-### ENDPOINT TEST FILE (rest client ext. required)
-
-GET https://crisp.nz
-
