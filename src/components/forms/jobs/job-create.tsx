@@ -1,6 +1,7 @@
 import { FunctionComponent, useState } from "react";
 import { Job } from "../../../common/data/job";
 import { createJob } from "../../../common/api/jobs-api";
+import { fetchCandidateUserData } from "../../../common/utils";
 
 export const JobForm: FunctionComponent = () => {
   const [formData, setFormData] = useState<Job>({
@@ -12,17 +13,33 @@ export const JobForm: FunctionComponent = () => {
     categoryId: '',
   });
 
-  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    await createJob(formData); // Pass formData to createJob
-    return; // or return a Promise.resolve() if you want
-  }
+    fetchCandidateUserData().then((profile) => {
+      const updatedFormData = {...formData, rid: profile.id};
+      createJob(updatedFormData).then(() => {
+        console.log("Job created successfully!");
+        setFormData({
+          id: '',
+          rid: '',
+          title: '',
+          description: '',
+          salary: '',
+          categoryId: '',
+        });
+      }).catch((error) => {
+        console.error("Error creating job:", error);
+      });
+    }).catch((error) => {
+      console.error("Error fetching candidate user data:", error);
+    });
+  };
 
   return (
     
     <section aria-labelledby="job-form">
-    <h1 className="text-3xl text-center mb-4">Created jobs list</h1>
-    <form className="max-w-md mx-auto">
+    <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">Created jobs list</h1>
+    <form className="max-w-md mx-auto" onSubmit={handleFormSubmit}>
       <div className="shadow sm:rounded-md sm:overflow-hidden">
         <div className="bg-white py-6 px-4 sm:p-6">
           <div className="mt-6">
@@ -30,7 +47,7 @@ export const JobForm: FunctionComponent = () => {
               htmlFor="title"
               className="block text-sm font-medium text-gray-700 mt-5"
             >
-              Job Title
+              Job Title*
             </label>
             <input
               type="text"
@@ -51,7 +68,7 @@ export const JobForm: FunctionComponent = () => {
               htmlFor="categoryId"
               className="block text-sm font-medium text-gray-700 mt-5"
             >
-              Category
+              Category*
             </label>
             <input
               type="text"
@@ -72,7 +89,7 @@ export const JobForm: FunctionComponent = () => {
               htmlFor="salary"
               className="block text-sm font-medium text-gray-700 mt-5"
             >
-              Salary
+              Salary*
             </label>
             <input
               type="text"
@@ -93,7 +110,7 @@ export const JobForm: FunctionComponent = () => {
               htmlFor="description"
               className="block text-sm font-medium text-gray-700 mt-5"
             >
-              Job Description
+              Job Description*
             </label>
             <input
               type="text"

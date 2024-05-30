@@ -10,7 +10,7 @@ import { getUrl, remove, uploadData } from "aws-amplify/storage";
 import { JobCategory, mergeCategoriesAndJobs } from "./data/job-opening";
 import { fetchJobs } from "./api/jobs-api";
 import { fetchCategories } from "./api/categories-api";
-import { Job } from "./data/job"
+
 
 // File used for common functions to be used in component
 export function classNames(...classes: Array<string>): string {
@@ -167,7 +167,7 @@ export async function uploadProfileCv(file: File): Promise<void> {
 
 		console.log("Profile updated with CV URI");
 	} catch (error) {
-		console.log("CV uplaod Error :", error);
+		console.log("CV upload Error :", error);
 		throw new Error("Error uploading video");
 	}
 }
@@ -233,12 +233,3 @@ export async function removeApplicationToJob(jobId: string): Promise<void> {
 	}
   }
 
-  // GET ALL CREATE JOBS
-export async function getAllCreatedJobs(): Promise<Array<Job>> {
-	const profile: CandidateProfile = await fetchCandidateUserData();
-	const jobs = await fetchJobs();
-
-	const createdJobs = jobs.filter((job) => profile.id === job.rid);
-
-	return createdJobs;
-}

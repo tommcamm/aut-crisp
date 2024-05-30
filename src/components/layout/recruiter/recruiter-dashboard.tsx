@@ -1,7 +1,7 @@
 import { CandidateList } from "./recruiter-seekers-list";
 import { JobForm } from "../../forms/jobs/job-create";
 import { CreatedJobsList } from "./recruiter-jobs-list";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent } from "react";
 
 export const RecruiterDashboard: FunctionComponent = () => {
 
