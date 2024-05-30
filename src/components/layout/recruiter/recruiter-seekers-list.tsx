@@ -21,7 +21,7 @@ export const CandidateList: React.FunctionComponent = () => {
     }, []);
 
   return (
-    <div className="flex flex-col items-center h-screen">
+    <div className="flex flex-col items-center h-screen ">
     <div className="w-full max-w-xl">
     <h1 className="text-3xl text-center mb-4">Candidates list</h1>
         <div className="overflow-y-auto h-96">
