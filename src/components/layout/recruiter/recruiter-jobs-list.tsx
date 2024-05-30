@@ -1,5 +1,5 @@
 import { FunctionComponent, useEffect, useState } from 'react';
-import { getAllCreatedJobs } from '../../../common/utils';
+import { getAllCreatedJobs } from '../../../common/api/jobs-api';
 
 
 interface CreatedJobs {

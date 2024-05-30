@@ -76,3 +76,4 @@ export async function updateProfile(
 		throw new Error("Failed to fetch profiles");
 	}
 }
+
