@@ -66,7 +66,7 @@ export const JobForm: FunctionComponent = () => {
   return (
     
     <section aria-labelledby="job-form">
-    <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">Create a job offer</h1>
+    <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">Create Job Post</h1>
     <form className="max-w-md mx-auto" onSubmit={handleFormSubmit}>
       <div className="shadow sm:rounded-md sm:overflow-hidden">
         <div className="bg-white py-6 px-4 sm:p-6">
