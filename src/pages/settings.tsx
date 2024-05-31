@@ -12,15 +12,22 @@ import { useEffect, useState } from "react";
 import { getSignedInUserProperties } from "../common/api/auth-api";
 import SyncLoader from "react-spinners/SyncLoader";
 import { RecruiterProfileSettingsForm } from "../components/forms/settings/recruiter-profile";
+import { ChangePasswordForm } from "../components/forms/settings/password-change";
 
 const subNavigation = [
-	{ name: "Profile", href: "#", icon: UserCircleIcon, current: true },
-	{ name: "Password", href: "#", icon: KeyIcon, current: false },
-	{ name: "Notifications", href: "#", icon: BellIcon, current: false },
+	{ name: "Profile", href: "profile", icon: UserCircleIcon, current: true },
+	{ name: "Password", href: "password", icon: KeyIcon, current: false },
+	{
+		name: "Notifications",
+		href: "notification",
+		icon: BellIcon,
+		current: false,
+	},
 ];
 
 export const SettingsPage = (): FunctionComponent => {
 	const [userType, setUserType] = useState<string>("");
+	const [currentPage, setCurrentPage] = useState<string>("profile");
 
 	async function fetchData(): Promise<void> {
 		const { userType } = await getSignedInUserProperties();
@@ -37,11 +44,20 @@ export const SettingsPage = (): FunctionComponent => {
 			<main className="max-w-7xl mx-auto pb-10 lg:py-12 lg:px-8 mb-auto">
 				<div className="lg:grid lg:grid-cols-12 lg:gap-x-5">
 					<aside className="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
-						<nav className="space-y-1">
+						<nav className="space-y-1 cursor-pointer">
 							{subNavigation.map((item) => (
 								<a
 									key={item.name}
-									href={item.href}
+									onClick={() => {
+										const selectedItem = subNavigation.find(
+											(item) => item.current === true
+										);
+										if (selectedItem) {
+											selectedItem.current = false;
+										}
+										item.current = true;
+										setCurrentPage(item.href);
+									}}
 									className={classNames(
 										item.current
 											? "bg-gray-50 text-blue-800 hover:bg-white"
@@ -65,23 +81,43 @@ export const SettingsPage = (): FunctionComponent => {
 						</nav>
 					</aside>
 					<div className="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-						{userType === "Job Seeker" && (
+						{currentPage === "profile" && (
 							<>
-								<SeekerProfileSettingsForm />
-								<SeekerProfilePic />
-								<SeekerProfileVideo />
-								<SeekerProfileCv />
+								{userType === "Job Seeker" && (
+									<>
+										<SeekerProfileSettingsForm />
+										<SeekerProfilePic />
+										<SeekerProfileVideo />
+										<SeekerProfileCv />
+									</>
+								)}
+								{userType === "Recruiter" && (
+									<>
+										<RecruiterProfileSettingsForm />
+									</>
+								)}
+								{userType === "" && (
+									<div className="p-5">
+										<SyncLoader color="#374151" speedMultiplier={0.6} />
+									</div>
+								)}{" "}
 							</>
 						)}
-						{userType === "Recruiter" && (
+						{currentPage === "password" && <ChangePasswordForm />}
+						{currentPage === "notification" && (
 							<>
-								<RecruiterProfileSettingsForm />
+								<div className="max-w-md w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-4">
+									<div className="px-6 py-8">
+										<h1 className="text-2xl font-semibold text-gray-800">
+											Notification Feature
+										</h1>
+										<p className="text-gray-700 mt-4">
+											The notification function will be implemented in the
+											future. Stay tuned!
+										</p>
+									</div>
+								</div>
 							</>
-						)}
-						{userType === "" && (
-							<div className="p-5">
-								<SyncLoader color="#374151" speedMultiplier={0.6} />
-							</div>
 						)}
 					</div>
 				</div>

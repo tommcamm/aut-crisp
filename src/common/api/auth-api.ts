@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 
-import { fetchUserAttributes, getCurrentUser } from "aws-amplify/auth";
+import { UpdatePasswordInput, fetchUserAttributes, getCurrentUser, updatePassword } from "aws-amplify/auth";
 
 /**
  * Checks if the user is currently authenticated.
@@ -41,3 +41,16 @@ export async function getSignedInUserProperties(): Promise<UserAttributes> {
 		throw new Error("Unable to fetch user details");
 	}
 }
+
+
+export async function handleUpdatePassword({
+	oldPassword,
+	newPassword
+  }: UpdatePasswordInput) : Promise<void> {
+	try {
+	  await updatePassword({ oldPassword, newPassword });
+	} catch (error) {
+	  console.log("Can't change the password", error);
+	  throw error;
+	}
+  }
