@@ -11,8 +11,11 @@ import { JobCategory, mergeCategoriesAndJobs } from "./data/job-opening";
 import { fetchJobs } from "./api/jobs-api";
 import { fetchCategories } from "./api/categories-api";
 import { RecruiterProfile } from "./data/recruiter-profile";
-import { createRecruiterProfile, fetchRecruiterProfileById } from "./api/recruiter-profiles-api";
-
+import {
+	createRecruiterProfile,
+	fetchRecruiterProfileById,
+} from "./api/recruiter-profiles-api";
+import { createNote, fetchNotes, updateNote } from "./api/notes-api";
 
 // File used for common functions to be used in component
 export function classNames(...classes: Array<string>): string {
@@ -217,25 +220,25 @@ export async function getAllAppliedJobs(): Promise<Array<JobCategory>> {
 // REMOVE APPLICATION TO A JOB
 export async function removeApplicationToJob(jobId: string): Promise<void> {
 	try {
-	  // Fetch candidate user data
-	  const profile: CandidateProfile = await fetchCandidateUserData();
-  
-	  // Check if the jobId exists in the jobId list and remove it
-	  const jobIndex = profile.jobId.indexOf(jobId);
-	  if (jobIndex > -1) {
-		profile.jobId.splice(jobIndex, 1);
-	  }
-  
-	  // Update the candidate profile with the new jobId list
-	  await updateProfile(profile);
-  
-	  console.log("Successfully removed application for the job:", jobId);
-	} catch (error) {
-	  console.error("Error removing application for the job:", error);
-	}
-  }
+		// Fetch candidate user data
+		const profile: CandidateProfile = await fetchCandidateUserData();
 
-  export async function fetchRecruiterUserData(): Promise<RecruiterProfile> {
+		// Check if the jobId exists in the jobId list and remove it
+		const jobIndex = profile.jobId.indexOf(jobId);
+		if (jobIndex > -1) {
+			profile.jobId.splice(jobIndex, 1);
+		}
+
+		// Update the candidate profile with the new jobId list
+		await updateProfile(profile);
+
+		console.log("Successfully removed application for the job:", jobId);
+	} catch (error) {
+		console.error("Error removing application for the job:", error);
+	}
+}
+
+export async function fetchRecruiterUserData(): Promise<RecruiterProfile> {
 	// First step is to check if the user is currently present in the db
 	// If not, create a new profile for the user
 	const { id, email } = await getSignedInUserProperties();
@@ -262,12 +265,58 @@ export async function removeApplicationToJob(jobId: string): Promise<void> {
 }
 
 // GET list of jobs that a specific job seeker applied
-export async function fetchAppliedJobsBySeekerId(seekerId: string): Promise<Array<string>> {
+export async function fetchAppliedJobsBySeekerId(
+	seekerId: string
+): Promise<Array<string>> {
 	const profile: RecruiterProfile = await fetchRecruiterUserData();
 	const { jobId } = await fetchProfileById(seekerId);
-	
+
 	const jobs = await fetchJobs();
-	const appliedJobs = jobs.filter((job) => jobId.includes(job.id) && (profile.id === job.rid ));
+	const appliedJobs = jobs.filter(
+		(job) => jobId.includes(job.id) && profile.id === job.rid
+	);
 
 	return appliedJobs.map((job) => job.title);
+}
+
+// GET the note for a specifc job seeker
+export async function fetchNoteBySeekerId(seekerId: string): Promise<string> {
+	const profile: RecruiterProfile = await fetchRecruiterUserData();
+	const notes = await fetchNotes();
+
+	const note = notes.find(
+		(note) =>
+			note.candidateProfileId === seekerId &&
+			profile.id === note.recruiterProfileId
+	);
+
+	return note?.notes ?? "";
+}
+
+// UPATE/CREATE a note for a specific job seeker
+export async function updateNoteForSeeker(
+	seekerId: string,
+	note: string
+): Promise<void> {
+	const profile: RecruiterProfile = await fetchRecruiterUserData();
+	const notes = await fetchNotes();
+
+	const existingNote = notes.find(
+		(note) =>
+			note.candidateProfileId === seekerId &&
+			profile.id === note.recruiterProfileId
+	);
+
+	if (existingNote) {
+		existingNote.notes = note;
+		await updateNote(existingNote);
+	} else {
+		const newNote = {
+			candidateProfileId: seekerId,
+			id: crypto.randomUUID(),
+			recruiterProfileId: profile.id,
+			notes: note,
+		};
+		await createNote(newNote);
+	}
 }
