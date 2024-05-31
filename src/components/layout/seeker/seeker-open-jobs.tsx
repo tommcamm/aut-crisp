@@ -9,6 +9,7 @@ import { Job } from "../../../common/data/job";
 import { fetchJobById } from "../../../common/api/jobs-api";
 import Modal from "react-modal";
 import { toast, ToastContainer } from "react-toastify";
+import { getSignedInUserProperties } from "../../../common/api/auth-api";
 
 export const SeekerOpenJobs: FunctionComponent = () => {
 	const [jobCategories, setJobCategories] = useState<Array<JobCategory>>([]);
@@ -16,6 +17,7 @@ export const SeekerOpenJobs: FunctionComponent = () => {
 	const [selectedDetailedJob, setSelectedDetailedJob] = useState<Job | null>(
 		null
 	);
+	
 
 	async function fetchData(): Promise<void> {
 		setJobCategories(await getAvailableJobs());
@@ -32,8 +34,14 @@ export const SeekerOpenJobs: FunctionComponent = () => {
 	};
 
 	const applyForJob = async (): Promise<void> => {
+		const { userType } = await getSignedInUserProperties();
+		if (userType === "Recruiter") {
+			toast.error("Only Job Seeker can apply for jobs");
+			return;
+		}
+		
+		
 		await applyToJob(selectedJob?.id ?? "");
-
 		// Same as close modal
 		setSelectedJob(null);
 		setSelectedDetailedJob(null);
