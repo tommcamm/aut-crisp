@@ -1,10 +1,5 @@
 /* eslint-disable unicorn/prevent-abbreviations */
-import {
-	BellIcon,
-	CogIcon,
-	KeyIcon,
-	UserCircleIcon,
-} from "@heroicons/react/24/outline";
+import { BellIcon, KeyIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import type { FunctionComponent } from "../common/types";
 import { Footer } from "../components/layout/footer";
 import { Navbar } from "../components/layout/navbar";
@@ -13,15 +8,28 @@ import { classNames } from "../common/utils";
 import { SeekerProfilePic } from "../components/forms/settings/seeker-pic";
 import { SeekerProfileVideo } from "../components/forms/settings/seeker-video";
 import { SeekerProfileCv } from "../components/forms/settings/seeker-cv";
+import { useEffect, useState } from "react";
+import { getSignedInUserProperties } from "../common/api/auth-api";
+import SyncLoader from "react-spinners/SyncLoader";
+import { RecruiterProfileSettingsForm } from "../components/forms/settings/recruiter-profile";
 
 const subNavigation = [
 	{ name: "Profile", href: "#", icon: UserCircleIcon, current: true },
-	{ name: "Account", href: "#", icon: CogIcon, current: false },
 	{ name: "Password", href: "#", icon: KeyIcon, current: false },
 	{ name: "Notifications", href: "#", icon: BellIcon, current: false },
 ];
 
 export const SettingsPage = (): FunctionComponent => {
+	const [userType, setUserType] = useState<string>("");
+
+	async function fetchData(): Promise<void> {
+		const { userType } = await getSignedInUserProperties();
+		setUserType(userType);
+	}
+
+	useEffect(() => {
+		void fetchData();
+	}, []);
 
 	return (
 		<div className="flex flex-col h-screen">
@@ -57,10 +65,22 @@ export const SettingsPage = (): FunctionComponent => {
 						</nav>
 					</aside>
 					<div className="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-						<SeekerProfileSettingsForm />
-						<SeekerProfilePic />
-						<SeekerProfileVideo />
-						<SeekerProfileCv />
+						{userType === "Job Seeker" && (
+							<>
+								<SeekerProfileSettingsForm />
+								<SeekerProfilePic />
+								<SeekerProfileVideo />
+								<SeekerProfileCv />
+							</>
+						)}
+						{userType === "Recruiter" && <>
+						<RecruiterProfileSettingsForm />
+						</>}
+						{userType === "" && (
+							<div className="p-5">
+								<SyncLoader color="#374151" speedMultiplier={0.6} />
+							</div>
+						)}
 					</div>
 				</div>
 			</main>
