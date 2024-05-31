@@ -10,6 +10,9 @@ import { getUrl, remove, uploadData } from "aws-amplify/storage";
 import { JobCategory, mergeCategoriesAndJobs } from "./data/job-opening";
 import { fetchJobs } from "./api/jobs-api";
 import { fetchCategories } from "./api/categories-api";
+import { RecruiterProfile } from "./data/recruiter-profile";
+import { createRecruiterProfile, fetchRecruiterProfileById } from "./api/recruiter-profiles-api";
+
 
 // File used for common functions to be used in component
 export function classNames(...classes: Array<string>): string {
@@ -166,7 +169,7 @@ export async function uploadProfileCv(file: File): Promise<void> {
 
 		console.log("Profile updated with CV URI");
 	} catch (error) {
-		console.log("CV uplaod Error :", error);
+		console.log("CV upload Error :", error);
 		throw new Error("Error uploading video");
 	}
 }
@@ -231,3 +234,29 @@ export async function removeApplicationToJob(jobId: string): Promise<void> {
 	  console.error("Error removing application for the job:", error);
 	}
   }
+
+  export async function fetchRecruiterUserData(): Promise<RecruiterProfile> {
+	// First step is to check if the user is currently present in the db
+	// If not, create a new profile for the user
+	const { id, email } = await getSignedInUserProperties();
+	const currProfile = await fetchRecruiterProfileById(id);
+
+	console.log("Current profile:", currProfile);
+
+	if (
+		(Array.isArray(currProfile) && currProfile.length === 0) ||
+		currProfile === undefined
+	) {
+		console.log("Profile not found, creating a new profile for the user");
+		const newProfile: RecruiterProfile = {
+			email,
+			id,
+			lastName: "",
+			name: "",
+			organization: "",
+		};
+		await createRecruiterProfile(newProfile);
+		return newProfile;
+	}
+	return currProfile;
+}

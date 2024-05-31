@@ -9,6 +9,7 @@ import { Job } from "../../../common/data/job";
 import { fetchJobById } from "../../../common/api/jobs-api";
 import Modal from "react-modal";
 import { toast, ToastContainer } from "react-toastify";
+import { getSignedInUserProperties } from "../../../common/api/auth-api";
 
 export const SeekerOpenJobs: FunctionComponent = () => {
 	const [jobCategories, setJobCategories] = useState<Array<JobCategory>>([]);
@@ -16,6 +17,7 @@ export const SeekerOpenJobs: FunctionComponent = () => {
 	const [selectedDetailedJob, setSelectedDetailedJob] = useState<Job | null>(
 		null
 	);
+	
 
 	async function fetchData(): Promise<void> {
 		setJobCategories(await getAvailableJobs());
@@ -32,8 +34,14 @@ export const SeekerOpenJobs: FunctionComponent = () => {
 	};
 
 	const applyForJob = async (): Promise<void> => {
-		await applyToJob(selectedJob?.id ?? '');
-
+		const { userType } = await getSignedInUserProperties();
+		if (userType === "Recruiter") {
+			toast.error("Only Job Seeker can apply for jobs");
+			return;
+		}
+		
+		
+		await applyToJob(selectedJob?.id ?? "");
 		// Same as close modal
 		setSelectedJob(null);
 		setSelectedDetailedJob(null);
@@ -51,34 +59,37 @@ export const SeekerOpenJobs: FunctionComponent = () => {
 			<h1 className="text-2xl font-bold text-gray-900 mb-6">
 				Open Job Positions
 			</h1>
-			{jobCategories.map((category) => (
-				<div key={category.id} className="mb-6">
-					<h2 className="text-xl font-semibold text-gray-800 mb-4">
-						{category.name}
-					</h2>
-					<ul className="space-y-4">
-						{category.jobs.map((job) => (
-							<li
-								key={job.id}
-								className="bg-white p-4 rounded-lg shadow-md flex items-center justify-between cursor-pointer"
-								onClick={() => {
-									openModal(job);
-								}}
-							>
-								<div className="flex items-center">
-									<BriefcaseIcon className="h-10 w-10 text-blue-600 mr-4" />
-									<div>
-										<h3 className="text-lg font-semibold text-gray-900">
-											{job.title}
-										</h3>
-									</div>
-								</div>
-								<ChevronRightIcon className="h-6 w-6 text-gray-400" />
-							</li>
-						))}
-					</ul>
-				</div>
-			))}
+			{jobCategories.map(
+				(category) =>
+					category.jobs.length > 0 && (
+						<div key={category.id} className="mb-6">
+							<h2 className="text-xl font-semibold text-gray-800 mb-4">
+								{category.name}
+							</h2>
+							<ul className="space-y-4">
+								{category.jobs.map((job) => (
+									<li
+										key={job.id}
+										className="bg-white p-4 rounded-lg shadow-md flex items-center justify-between cursor-pointer"
+										onClick={() => {
+											openModal(job);
+										}}
+									>
+										<div className="flex items-center">
+											<BriefcaseIcon className="h-10 w-10 text-blue-600 mr-4" />
+											<div>
+												<h3 className="text-lg font-semibold text-gray-900">
+													{job.title}
+												</h3>
+											</div>
+										</div>
+										<ChevronRightIcon className="h-6 w-6 text-gray-400" />
+									</li>
+								))}
+							</ul>
+						</div>
+					)
+			)}
 
 			<Modal
 				isOpen={!!selectedJob}
@@ -121,7 +132,8 @@ export const SeekerOpenJobs: FunctionComponent = () => {
 				pauseOnFocusLoss
 				draggable
 				pauseOnHover
-				theme="light" />
+				theme="light"
+			/>
 		</div>
 	);
 };

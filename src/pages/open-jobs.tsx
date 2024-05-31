@@ -9,7 +9,6 @@ export const OpenJobs = (): FunctionComponent => {
 	return (
 		<div className="flex flex-col h-screen justify-between">
 			<Navbar currentPage="open-jobs" />
-
 			<SeekerOpenJobs />
 			<Footer />
 		</div>
