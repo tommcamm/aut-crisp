@@ -81,6 +81,7 @@ export const JobForm: FunctionComponent = () => {
                   title: event.target.value,
                 });
               }}
+              required
               autoComplete="title"
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
             />
@@ -92,18 +93,20 @@ export const JobForm: FunctionComponent = () => {
                 Category*
               </label>
               <select
-                name="categoryId"
-                id="categoryId"
-                value={formData.categoryId}
-                onChange={handleCategoryChange}
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
-              >
-                {jobCategories.map((category) => (
-                  <option key={category.id} value={category.id}>
-                    {category.description}
-                  </option>
-                ))}
-              </select>
+                  name="categoryId"
+                  id="categoryId"
+                  value={formData.categoryId}
+                  onChange={handleCategoryChange}
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
+                  required
+                >
+                  <option value="">Select a category</option>
+                  {jobCategories.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.description}
+                    </option>
+                  ))}
+                </select>
   
             <label
               htmlFor="salary"
@@ -122,6 +125,7 @@ export const JobForm: FunctionComponent = () => {
                   salary: event.target.value,
                 });
               }}
+              required
               autoComplete="salary"
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
             />
@@ -143,6 +147,7 @@ export const JobForm: FunctionComponent = () => {
                   description: event.target.value,
                 });
               }}
+              required
               autoComplete="description"
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm  min-h-[100px]"
             />
