@@ -10,14 +10,17 @@ import { ToastContainer } from "react-toastify";
 import { ChevronRightIcon, DocumentTextIcon} from "@heroicons/react/24/outline";
 import { CandidateProfile } from '../../../common/data/candidate-profile';
 import { fetchProfileById } from '../../../common/api/candidate-profiles-api';
-import { getPublicResource } from '../../../common/utils';
+import { fetchAppliedJobsBySeekerId } from '../../../common/utils';
+// import { getPublicResource } from '../../../common/utils';
+
 export const CandidateList: FunctionComponent = () => {
   const [createdJobs, setCreatedJobs] = useState<Array<Job>>([]);
   const [candidates, setCandidates] = useState<Array<CandidateProfile>>([]);
   const [selectedCandidate, setSelectedCandidate] = useState<CandidateProfile | null>(null);
-	const [selectedDetailedCandidate, setSelectedDetailedCandidate] = useState<CandidateProfile | null>(
-		null
-	);
+  const [candidateJobsApplied, setCandidateJobsApplied] = useState<Array<string>>([]);
+  const [selectedDetailedCandidate, setSelectedDetailedCandidate] = useState<CandidateProfile | null>(
+	  null
+  );
   
   async function fetchData(): Promise<void> {
     const createdJobs = await getAllCreatedJobs();
@@ -35,6 +38,8 @@ export const CandidateList: FunctionComponent = () => {
       setSelectedCandidate(candidate);
       const detail = await fetchProfileById(candidate.id);
       setSelectedDetailedCandidate(detail);
+	  const candidateJobsApplied = await fetchAppliedJobsBySeekerId(candidate.id);
+	  setCandidateJobsApplied(candidateJobsApplied)
 }
 
     const closeModal = (): void => {
@@ -79,12 +84,28 @@ export const CandidateList: FunctionComponent = () => {
 			>
 				<div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
 					<p className="text-2xl font-bold mb-4">{selectedDetailedCandidate?.name} {selectedDetailedCandidate?.lastName}</p>
-					<p className="text-gray-700 mb-4">
+					<p className="text-gray-700 mb-4 font-semibold">
 						Email: {selectedDetailedCandidate?.email}
 					</p>
-          			<p className="text-gray-700 mb-4">
+          			<p className="text-gray-700 mb-4 font-semibold">
 						Date of birth: {selectedDetailedCandidate?.dob}
 					</p>
+					<div className="text-gray-700 mb-4 font-semibold">Jobs applied:
+					{candidateJobsApplied.map((job) => (
+						<div key={job} className="mb-6">
+							<li
+								key={job}
+								className=" bg-white p-4 rounded-lg shadow-md flex items-center justify-between cursor-pointer"
+							>
+								<div className="flex items-center">
+									<span className="text-lg font-semibold text-gray-700">
+										{job}
+									</span>
+								</div>
+							</li>
+						</div>
+					))}
+					</div>
 					<div
 										className="flex flex-col items-center text-red-500 cursor-pointer"
 										onClick={handleIconClick}
