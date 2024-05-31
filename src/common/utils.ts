@@ -232,4 +232,3 @@ export async function removeApplicationToJob(jobId: string): Promise<void> {
 	  console.error("Error removing application for the job:", error);
 	}
   }
-

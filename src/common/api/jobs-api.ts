@@ -1,4 +1,4 @@
-import { get, post } from "aws-amplify/api";
+import { get, post, del } from "aws-amplify/api";
 import { Convert, Job } from "../data/job";
 import { CandidateProfile } from "../data/candidate-profile";
 import { fetchProfiles } from "./candidate-profiles-api"
@@ -59,6 +59,20 @@ export async function createJob(job: Job): Promise<void> {
 	}
 }
 
+export async function deleteJob(jobId: string): Promise<void> {
+	try {
+		const restOperation = del({
+			apiName: "crispApi",
+			path: `${baseUrl}/${jobId}`,
+	  });
+	  const response = await restOperation.response;
+	  console.log("DELETE call succeeded:", response);
+	} catch (error) {
+	  console.log("DELETE call failed:", error);
+	  throw new Error("Failed to delete job");
+	}
+  }
+
 //Get all created jobs by the recruiter
 export async function getAllCreatedJobs(): Promise<Array<Job>> {
 	try {
@@ -88,4 +102,4 @@ export async function fetchProfileByJobId(jobs: Array<Job>): Promise<Array<Candi
 	  console.log("GET call failed:", error);
 	  throw new Error("Failed to fetch profiles");
 	}
-  }
+}
