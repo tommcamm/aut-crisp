@@ -1,5 +1,5 @@
 export interface RecruiterProfile {
-    companyName: string;
+    organization: string;
     name: string;
     lastName: string;
     email: string;

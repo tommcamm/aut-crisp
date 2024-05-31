@@ -5,7 +5,7 @@ import { Convert, RecruiterProfile } from "../data/recruiter-profile";
 
 const baseUrl = "/recruiters/profiles";
 
-export async function createProfile(profile: RecruiterProfile): Promise<void> {
+export async function createRecruiterProfile(profile: RecruiterProfile): Promise<void> {
     try {
 		const restOperation = post({
 			apiName: "crispApi",
@@ -39,7 +39,7 @@ export async function fetchRecruiterProfiles(): Promise<Array<RecruiterProfile>>
 
 
 // Fetch a specific profile by ID
-export async function fetchProfileById(id: string): Promise<RecruiterProfile> {
+export async function fetchRecruiterProfileById(id: string): Promise<RecruiterProfile> {
 	try {
 		const restOperation = get({
 			apiName: "crispApi",
