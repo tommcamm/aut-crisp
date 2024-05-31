@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable unicorn/consistent-function-scoping */
 import { FunctionComponent, useEffect, useState } from 'react';
-import { getAllCreatedJobs, deleteJob, fetchJobById } from '../../../common/api/jobs-api';
+import { getAllCreatedJobs, fetchJobById } from '../../../common/api/jobs-api';
 import { Job } from "../../../common/data/job";
 import { ShortJob } from "../../../common/data/job-opening";
 import Modal from "react-modal";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { BriefcaseIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 interface CreatedJob {

@@ -38,6 +38,7 @@ export const CandidateList: FunctionComponent = () => {
         ))}
         </div>
     </div>
+    {createdJobs.map(() => ( <div></div>))}
     </div>
   );
 };
