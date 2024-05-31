@@ -40,15 +40,15 @@ export const CreatedJobsList: FunctionComponent = () => {
         setSelectedDetailedJob(detail);
   }
 
-  const deleteCreatedJob = async (): Promise<void> => {
-        await deleteJob(selectedJob?.id ?? '');
+  // const deleteCreatedJob = async (): Promise<void> => {
+  //       await deleteJob(selectedJob?.id ?? '');
 
-        // Same as close modal
-        setSelectedJob(null);
-        setSelectedDetailedJob(null);
-        await fetchData();
-        toast.success("Job deleted successfully");
-	};
+  //       // Same as close modal
+  //       setSelectedJob(null);
+  //       setSelectedDetailedJob(null);
+  //       await fetchData();
+  //       toast.success("Job deleted successfully");
+	// };
 
   const closeModal = (): void => {
 		setSelectedJob(null);
