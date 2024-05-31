@@ -39,6 +39,7 @@ Crisp leverages AWS services to enhance data privacy, ensure high availability, 
 
 - [Node.JS 18+](https://nodejs.org/en/download)
 - [pnpm](https://pnpm.io/) (or equivalent)
+- [Amplify CLI](https://docs.amplify.aws/gen1/javascript/tools/cli/)
 
 ### How to Build/Run
 
