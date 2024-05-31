@@ -6,17 +6,17 @@ import { fetchCandidateUserData } from "../../../common/utils";
 import { fetchCategories } from "../../../common/api/categories-api";
 
 export const JobForm: FunctionComponent = () => {
-  const [jobCategories, setJobCategories] = useState<Array<Category>>([]);
-  const [formData, setFormData] = useState<Job>({
-    id: '',
-    rid: '',
-    title: '',
-    description: '',
-    salary: '',
-    categoryId: '',
-  });
+	const [jobCategories, setJobCategories] = useState<Array<Category>>([]);
+	const [formData, setFormData] = useState<Job>({
+		id: "",
+		rid: "",
+		title: "",
+		description: "",
+		salary: "",
+		categoryId: "",
+	});
 
-  async function fetchData(): Promise<void> {
+	async function fetchData(): Promise<void> {
 		setJobCategories(await fetchCategories());
 	}
 
@@ -24,37 +24,44 @@ export const JobForm: FunctionComponent = () => {
 		void fetchData();
 	}, []);
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
-    fetchCandidateUserData().then((profile) => {
-      const updatedFormData = {...formData, rid: profile.id};
-      createJob(updatedFormData).then(() => {
-        console.log("Job created successfully!");
-        setFormData({
-          id: '',
-          rid: '',
-          title: '',
-          description: '',
-          salary: '',
-          categoryId: '',
-        });
-        console.log("formDataTitle:", formData.title);
-        console.log("formDataCID:", formData.categoryId);
-      }).catch((error) => {
-        console.error("Error creating job:", error);
-      });
-    }).catch((error) => {
-      console.error("Error fetching candidate user data:", error);
-    });
-  };
+	const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+		event.preventDefault();
 
-  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-    console.log("categoryID:", event.target.value);
-    setFormData({
-      ...formData,
-      categoryId: event.target.value,
-    });
-  };
+		fetchCandidateUserData()
+			.then((profile) => {
+				const updatedFormData = { ...formData, rid: profile.id };
+				createJob(updatedFormData)
+					.then(() => {
+						console.log("Job created successfully!");
+						setFormData({
+							id: "",
+							rid: "",
+							title: "",
+							description: "",
+							salary: "",
+							categoryId: "",
+						});
+						console.log("formDataTitle:", formData.title);
+						console.log("formDataCID:", formData.categoryId);
+					})
+					.catch((error) => {
+						console.error("Error creating job:", error);
+					});
+			})
+			.catch((error) => {
+				console.error("Error fetching candidate user data:", error);
+			});
+	};
+
+	const handleCategoryChange = (
+		event: React.ChangeEvent<HTMLSelectElement>
+	): void => {
+		console.log("categoryID:", event.target.value);
+		setFormData({
+			...formData,
+			categoryId: event.target.value,
+		});
+	};
 
   return (
     
