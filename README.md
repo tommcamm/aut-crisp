@@ -12,10 +12,6 @@ Crisp is an innovative platform designed to connect jobseekers and recruiters ef
   - [Frontend](#frontend)
     - [Requirements](#requirements)
     - [How to Build/Run](#how-to-buildrun)
-- [Step 1 - Clone the repo and pull the AWS Amplify Configuration](#step-1---clone-the-repo-and-pull-the-aws-amplify-configuration)
-- [Step 2 - install all node dependencies](#step-2---install-all-node-dependencies)
-- [Step 3 - Build the frontend](#step-3---build-the-frontend)
-- [(Optional) Step 4 - Run dev version of frontend](#optional-step-4---run-dev-version-of-frontend)
 
 ## Project Overview
 
@@ -63,3 +59,4 @@ pnpm run build
 
 # (Optional) Step 4 - Run dev version of frontend
 pnpm run dev
+```
