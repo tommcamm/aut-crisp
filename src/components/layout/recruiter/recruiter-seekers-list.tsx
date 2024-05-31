@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-confusing-void-expression */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable unicorn/consistent-function-scoping */
@@ -6,12 +7,10 @@ import { Job } from "../../../common/data/job"
 import { getAllCreatedJobs, fetchProfileByJobId } from '../../../common/api/jobs-api';
 import Modal from "react-modal";
 import { ToastContainer } from "react-toastify";
-import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import { ChevronRightIcon, DocumentTextIcon} from "@heroicons/react/24/outline";
 import { CandidateProfile } from '../../../common/data/candidate-profile';
 import { fetchProfileById } from '../../../common/api/candidate-profiles-api';
 import { getPublicResource } from '../../../common/utils';
-import { DocumentTextIcon } from "@heroicons/react/24/outline";
-
 export const CandidateList: FunctionComponent = () => {
   const [createdJobs, setCreatedJobs] = useState<Array<Job>>([]);
   const [candidates, setCandidates] = useState<Array<CandidateProfile>>([]);
@@ -42,6 +41,10 @@ export const CandidateList: FunctionComponent = () => {
       setSelectedCandidate(null);
       setSelectedDetailedCandidate(null);
     };
+
+	const handleIconClick = (): void => {
+		window.open("_blank");
+	};
 
   return (
     <div className="w-full max-w-xl">
@@ -79,25 +82,30 @@ export const CandidateList: FunctionComponent = () => {
 					<p className="text-gray-700 mb-4">
 						Email: {selectedDetailedCandidate?.email}
 					</p>
-          <p className="text-gray-700 mb-4">
+          			<p className="text-gray-700 mb-4">
 						Date of birth: {selectedDetailedCandidate?.dob}
 					</p>
-          <div><DocumentTextIcon className="h-12 w-12 text-gray-400" /> Download CV</div>
-					<div className="flex justify-end space-x-4">
-						<button
-							onClick={closeModal}
-							className="mt-4 bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-700"
-						>
-							Close
-						</button>
-						{/* <button
-							onClick= {deleteCreatedJob}
-							className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-						>
-							Delete
-						</button> */}
-					</div>
+					<div
+										className="flex flex-col items-center text-red-500 cursor-pointer"
+										onClick={handleIconClick}
+									>
+										<DocumentTextIcon className="h-12 w-12 text-blue-gray-900hover:text-blue-gray-700" />
+										<span className="text-sm text-blue-gray-900">Open PDF</span>
+									</div>
+					<button
+						onClick={closeModal}
+						className="mt-4 bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-700"
+					>
+						Close
+					</button>
+					{/* <button
+						onClick= {deleteCreatedJob}
+						className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+					>
+						Delete
+					</button> */}
 				</div>
+
 			</Modal>
 
 			<ToastContainer
