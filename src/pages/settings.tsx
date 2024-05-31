@@ -73,9 +73,11 @@ export const SettingsPage = (): FunctionComponent => {
 								<SeekerProfileCv />
 							</>
 						)}
-						{userType === "Recruiter" && <>
-						<RecruiterProfileSettingsForm />
-						</>}
+						{userType === "Recruiter" && (
+							<>
+								<RecruiterProfileSettingsForm />
+							</>
+						)}
 						{userType === "" && (
 							<div className="p-5">
 								<SyncLoader color="#374151" speedMultiplier={0.6} />
