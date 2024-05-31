@@ -1,9 +1,12 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useState, useEffect } from "react";
+import { Category } from "../../../common/data/category";
 import { Job } from "../../../common/data/job";
 import { createJob } from "../../../common/api/jobs-api";
 import { fetchCandidateUserData } from "../../../common/utils";
+import { fetchCategories } from "../../../common/api/categories-api";
 
 export const JobForm: FunctionComponent = () => {
+  const [jobCategories, setJobCategories] = useState<Array<Category>>([]);
   const [formData, setFormData] = useState<Job>({
     id: '',
     rid: '',
@@ -12,6 +15,14 @@ export const JobForm: FunctionComponent = () => {
     salary: '',
     categoryId: '',
   });
+
+  async function fetchData(): Promise<void> {
+		setJobCategories(await fetchCategories());
+	}
+
+	useEffect(() => {
+		void fetchData();
+	}, []);
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -27,11 +38,21 @@ export const JobForm: FunctionComponent = () => {
           salary: '',
           categoryId: '',
         });
+        console.log("formDataTitle:", formData.title);
+        console.log("formDataCID:", formData.categoryId);
       }).catch((error) => {
         console.error("Error creating job:", error);
       });
     }).catch((error) => {
       console.error("Error fetching candidate user data:", error);
+    });
+  };
+
+  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
+    console.log("categoryID:", event.target.value);
+    setFormData({
+      ...formData,
+      categoryId: event.target.value,
     });
   };
 
@@ -65,25 +86,24 @@ export const JobForm: FunctionComponent = () => {
             />
 
             <label
-              htmlFor="categoryId"
-              className="block text-sm font-medium text-gray-700 mt-5"
-            >
-              Category*
-            </label>
-            <input
-              type="text"
-              name="categoryId"
-              id="categoryId"
-              value={formData.categoryId}
-              onChange={(event) => {
-                setFormData({
-                 ...formData,
-                  categoryId: event.target.value,
-                });
-              }}
-              autoComplete="categoryId"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
-            />
+                htmlFor="categoryId"
+                className="block text-sm font-medium text-gray-700 mt-5"
+              >
+                Category*
+              </label>
+              <select
+                name="categoryId"
+                id="categoryId"
+                value={formData.categoryId}
+                onChange={handleCategoryChange}
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
+              >
+                {jobCategories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.description}
+                  </option>
+                ))}
+              </select>
   
             <label
               htmlFor="salary"
