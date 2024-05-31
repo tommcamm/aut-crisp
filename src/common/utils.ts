@@ -260,3 +260,14 @@ export async function removeApplicationToJob(jobId: string): Promise<void> {
 	}
 	return currProfile;
 }
+
+// GET list of jobs that a specific job seeker applied
+export async function fetchAppliedJobsBySeekerId(seekerId: string): Promise<Array<string>> {
+	const profile: RecruiterProfile = await fetchRecruiterUserData();
+	const { jobId } = await fetchProfileById(seekerId);
+	
+	const jobs = await fetchJobs();
+	const appliedJobs = jobs.filter((job) => jobId.includes(job.id) && (profile.id === job.rid ));
+
+	return appliedJobs.map((job) => job.title);
+}

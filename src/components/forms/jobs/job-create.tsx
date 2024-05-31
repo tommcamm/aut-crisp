@@ -6,17 +6,17 @@ import { fetchCandidateUserData } from "../../../common/utils";
 import { fetchCategories } from "../../../common/api/categories-api";
 
 export const JobForm: FunctionComponent = () => {
-  const [jobCategories, setJobCategories] = useState<Array<Category>>([]);
-  const [formData, setFormData] = useState<Job>({
-    id: '',
-    rid: '',
-    title: '',
-    description: '',
-    salary: '',
-    categoryId: '',
-  });
+	const [jobCategories, setJobCategories] = useState<Array<Category>>([]);
+	const [formData, setFormData] = useState<Job>({
+		id: "",
+		rid: "",
+		title: "",
+		description: "",
+		salary: "",
+		categoryId: "",
+	});
 
-  async function fetchData(): Promise<void> {
+	async function fetchData(): Promise<void> {
 		setJobCategories(await fetchCategories());
 	}
 
@@ -24,42 +24,49 @@ export const JobForm: FunctionComponent = () => {
 		void fetchData();
 	}, []);
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
-    fetchCandidateUserData().then((profile) => {
-      const updatedFormData = {...formData, rid: profile.id};
-      createJob(updatedFormData).then(() => {
-        console.log("Job created successfully!");
-        setFormData({
-          id: '',
-          rid: '',
-          title: '',
-          description: '',
-          salary: '',
-          categoryId: '',
-        });
-        console.log("formDataTitle:", formData.title);
-        console.log("formDataCID:", formData.categoryId);
-      }).catch((error) => {
-        console.error("Error creating job:", error);
-      });
-    }).catch((error) => {
-      console.error("Error fetching candidate user data:", error);
-    });
-  };
+	const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+		event.preventDefault();
 
-  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-    console.log("categoryID:", event.target.value);
-    setFormData({
-      ...formData,
-      categoryId: event.target.value,
-    });
-  };
+		fetchCandidateUserData()
+			.then((profile) => {
+				const updatedFormData = { ...formData, rid: profile.id };
+				createJob(updatedFormData)
+					.then(() => {
+						console.log("Job created successfully!");
+						setFormData({
+							id: "",
+							rid: "",
+							title: "",
+							description: "",
+							salary: "",
+							categoryId: "",
+						});
+						console.log("formDataTitle:", formData.title);
+						console.log("formDataCID:", formData.categoryId);
+					})
+					.catch((error) => {
+						console.error("Error creating job:", error);
+					});
+			})
+			.catch((error) => {
+				console.error("Error fetching candidate user data:", error);
+			});
+	};
+
+	const handleCategoryChange = (
+		event: React.ChangeEvent<HTMLSelectElement>
+	): void => {
+		console.log("categoryID:", event.target.value);
+		setFormData({
+			...formData,
+			categoryId: event.target.value,
+		});
+	};
 
   return (
     
     <section aria-labelledby="job-form">
-    <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">Create a job offer</h1>
+    <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">Create Job Post</h1>
     <form className="max-w-md mx-auto" onSubmit={handleFormSubmit}>
       <div className="shadow sm:rounded-md sm:overflow-hidden">
         <div className="bg-white py-6 px-4 sm:p-6">
@@ -81,6 +88,7 @@ export const JobForm: FunctionComponent = () => {
                   title: event.target.value,
                 });
               }}
+              required
               autoComplete="title"
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
             />
@@ -92,18 +100,20 @@ export const JobForm: FunctionComponent = () => {
                 Category*
               </label>
               <select
-                name="categoryId"
-                id="categoryId"
-                value={formData.categoryId}
-                onChange={handleCategoryChange}
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
-              >
-                {jobCategories.map((category) => (
-                  <option key={category.id} value={category.id}>
-                    {category.description}
-                  </option>
-                ))}
-              </select>
+                  name="categoryId"
+                  id="categoryId"
+                  value={formData.categoryId}
+                  onChange={handleCategoryChange}
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
+                  required
+                >
+                  <option value="">Select a category</option>
+                  {jobCategories.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.description}
+                    </option>
+                  ))}
+                </select>
   
             <label
               htmlFor="salary"
@@ -122,6 +132,7 @@ export const JobForm: FunctionComponent = () => {
                   salary: event.target.value,
                 });
               }}
+              required
               autoComplete="salary"
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
             />
@@ -143,6 +154,7 @@ export const JobForm: FunctionComponent = () => {
                   description: event.target.value,
                 });
               }}
+              required
               autoComplete="description"
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm  min-h-[100px]"
             />
