@@ -1,25 +1,41 @@
+/* eslint-disable unicorn/prevent-abbreviations */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable unicorn/consistent-function-scoping */
 /* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { useEffect, useState } from "react";
 import type { FunctionComponent } from "../../../common/types";
+import { fetchRecruiterUserData } from "../../../common/utils";
+import { updateRecruiterProfile } from "../../../common/api/recruiter-profiles-api";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 export const RecruiterProfileSettingsForm = (): FunctionComponent => {
 	const [name, setName] = useState<string>("");
 	const [lastName, setLastName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 	const [organization, setOrganization] = useState<string>("");
+	const [successMsg, setSuccessMsg] = useState<boolean>(false);
 
 	async function fetchData(): Promise<void> {
-		// TODO: Implement fetching of recruiter data
+		const profile = await fetchRecruiterUserData();
+		setName(profile.name);
+		setLastName(profile.lastName);
+		setEmail(profile.email);
+		setOrganization(profile.organization);
 	}
 
 	async function handleProfileSave(
 		event: React.FormEvent<HTMLFormElement>
 	): Promise<void> {
 		event.preventDefault();
-		// Implement saving of recruiter data
+
+		const profile = await fetchRecruiterUserData();
+		profile.name = name;
+		profile.lastName = lastName;
+		profile.organization = organization;
+
+		await updateRecruiterProfile(profile);
+		setSuccessMsg(true);
 	}
 
 	useEffect(() => {
@@ -38,9 +54,31 @@ export const RecruiterProfileSettingsForm = (): FunctionComponent => {
 							>
 								Profile details
 							</h2>
+
 							<p className="mt-1 text-sm text-gray-500">
 								Update your recruiter profile information.
 							</p>
+
+
+							<div className="pt-2">
+							{successMsg && (
+								<div className="rounded-md bg-green-50 p-4">
+									<div className="flex">
+										<div className="flex-shrink-0">
+											<CheckCircleIcon
+												className="h-5 w-5 text-green-400"
+												aria-hidden="true"
+											/>
+										</div>
+										<div className="ml-3">
+											<h3 className="text-sm font-medium text-green-800">
+												Profile info updated successfully!
+											</h3>
+										</div>
+									</div>
+								</div>
+							)}
+							</div>
 						</div>
 
 						<div className="mt-6 grid grid-cols-4 gap-6">

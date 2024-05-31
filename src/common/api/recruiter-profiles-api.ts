@@ -1,6 +1,6 @@
 // TODO: Implement API logic to connect with recruiterProfiles Table.
 
-import { get, post } from "aws-amplify/api";
+import { get, post, put } from "aws-amplify/api";
 import { Convert, RecruiterProfile } from "../data/recruiter-profile";
 
 const baseUrl = "/recruiters/profiles";
@@ -53,6 +53,27 @@ export async function fetchRecruiterProfileById(id: string): Promise<RecruiterPr
 		)[0] as RecruiterProfile;
 	} catch (error) {
 		console.log("GET call failed:", error);
+		throw new Error("Failed to fetch profiles");
+	}
+}
+
+// Update a profile
+export async function updateRecruiterProfile(
+	profile: RecruiterProfile
+): Promise<RecruiterProfile> {
+
+	console.log("Profile to update:", profile);
+	try {
+		const restOperation = put({
+			apiName: "crispApi",
+			path: `${baseUrl}`,
+			options: { body: profile as unknown as undefined},
+		});
+		const response = await restOperation.response;
+		console.log("PUT call succeeded:", response);
+		return Convert.toRecruiterProfile(await response.body.text());
+	} catch (error) {
+		console.log("PUT call failed:", error);
 		throw new Error("Failed to fetch profiles");
 	}
 }
