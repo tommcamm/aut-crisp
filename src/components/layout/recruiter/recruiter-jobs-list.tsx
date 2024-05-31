@@ -57,7 +57,7 @@ export const CreatedJobsList: FunctionComponent = () => {
 
   return (
     <div className="w-full max-w-xl">
-			<h1 className="text-3xl font-bold text-gray-900 text-center mb-4">Create jobs list</h1>
+			<h1 className="text-3xl font-bold text-gray-900 text-center mb-4">Created jobs list</h1>
 			{createdJobs.map((job) => (
 				<div key={job.id} className="mb-6">
 					<li
