@@ -13,7 +13,7 @@ import {
 	getSignedInUserProperties,
 	isUserAuthenticated,
 } from "../../common/api/auth-api";
-import { classNames, fetchCandidateUserData } from "../../common/utils";
+import { classNames, fetchCandidateUserData, fetchRecruiterUserData } from "../../common/utils";
 
 export const SignInOutMenu: React.FC = () => {
 	const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
@@ -23,16 +23,15 @@ export const SignInOutMenu: React.FC = () => {
 		setIsAuthenticated(await isUserAuthenticated());
 
 		if (isAuthenticated) {
-      const { userType } = await getSignedInUserProperties();
+			const { userType } = await getSignedInUserProperties();
 
-      if (userType === "Job Seeker") {
-        const { name } = await fetchCandidateUserData();
-        setName(name == '' ? 'Job Seeker' : name);
-      } else if (userType === "Recruiter") {
-        setName("Recruiter");
-      }
-
-      setName(userType);
+			if (userType === "Job Seeker") {
+				const { name } = await fetchCandidateUserData();
+				setName(name === "" ? "Job Seeker" : name);
+			} else if (userType === "Recruiter") {
+				const { name } = await fetchRecruiterUserData();
+				setName(name === "" ? "Recruiter" : name);
+			}
 		}
 	};
 

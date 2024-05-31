@@ -10,6 +10,8 @@ import { getUrl, remove, uploadData } from "aws-amplify/storage";
 import { JobCategory, mergeCategoriesAndJobs } from "./data/job-opening";
 import { fetchJobs } from "./api/jobs-api";
 import { fetchCategories } from "./api/categories-api";
+import { RecruiterProfile } from "./data/recruiter-profile";
+import { createRecruiterProfile, fetchRecruiterProfileById } from "./api/recruiter-profiles-api";
 
 
 // File used for common functions to be used in component
@@ -233,3 +235,39 @@ export async function removeApplicationToJob(jobId: string): Promise<void> {
 	}
   }
 
+  export async function fetchRecruiterUserData(): Promise<RecruiterProfile> {
+	// First step is to check if the user is currently present in the db
+	// If not, create a new profile for the user
+	const { id, email } = await getSignedInUserProperties();
+	const currProfile = await fetchRecruiterProfileById(id);
+
+	console.log("Current profile:", currProfile);
+
+	if (
+		(Array.isArray(currProfile) && currProfile.length === 0) ||
+		currProfile === undefined
+	) {
+		console.log("Profile not found, creating a new profile for the user");
+		const newProfile: RecruiterProfile = {
+			email,
+			id,
+			lastName: "",
+			name: "",
+			organization: "",
+		};
+		await createRecruiterProfile(newProfile);
+		return newProfile;
+	}
+	return currProfile;
+}
+
+// GET list of jobs that a specific job seeker applied
+export async function fetchAppliedJobsBySeekerId(seekerId: string): Promise<Array<string>> {
+	const profile: RecruiterProfile = await fetchRecruiterUserData();
+	const { jobId } = await fetchProfileById(seekerId);
+	
+	const jobs = await fetchJobs();
+	const appliedJobs = jobs.filter((job) => jobId.includes(job.id) && (profile.id === job.rid ));
+
+	return appliedJobs.map((job) => job.title);
+}
