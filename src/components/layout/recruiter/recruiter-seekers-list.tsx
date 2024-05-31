@@ -9,6 +9,8 @@ import { ToastContainer } from "react-toastify";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { CandidateProfile } from '../../../common/data/candidate-profile';
 import { fetchProfileById } from '../../../common/api/candidate-profiles-api';
+import { getPublicResource } from '../../../common/utils';
+import { DocumentTextIcon } from "@heroicons/react/24/outline";
 
 export const CandidateList: FunctionComponent = () => {
   const [createdJobs, setCreatedJobs] = useState<Array<Job>>([]);
@@ -80,6 +82,7 @@ export const CandidateList: FunctionComponent = () => {
           <p className="text-gray-700 mb-4">
 						Date of birth: {selectedDetailedCandidate?.dob}
 					</p>
+          <div><DocumentTextIcon className="h-12 w-12 text-gray-400" /> Download CV</div>
 					<div className="flex justify-end space-x-4">
 						<button
 							onClick={closeModal}
